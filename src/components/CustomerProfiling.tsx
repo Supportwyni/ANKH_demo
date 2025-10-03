@@ -37,34 +37,34 @@ const CustomerProfiling = () => {
   const { toast } = useToast();
 
   const mockProfileResults = {
-    personaType: "Active Senior Seeker",
+    personaType: "活躍長者尋求者",
     confidence: 92,
     demographics: {
-      ageRange: "60-75",
-      income: "$40,000 - $80,000",
-      education: "High school to college",
-      location: "Suburban and rural areas",
-      lifestyle: "Active retirement, health-conscious"
+      ageRange: "60-75歲",
+      income: "港幣$320,000 - $640,000",
+      education: "中學至大學程度",
+      location: "新界及市區住宅區",
+      lifestyle: "活躍退休生活，注重健康"
     },
     preferences: {
-      contentTypes: ["Educational videos (3-5 mins)", "Testimonials", "Clear demonstrations"],
-      channels: ["Email", "Facebook", "Healthcare websites", "Print materials"],
-      timing: "Morning hours (9-11 AM), Early evening (5-7 PM)",
-      tone: "Trustworthy, empathetic, easy to understand"
+      contentTypes: ["教育短片 (3-5分鐘)", "用戶見證", "清晰產品演示"],
+      channels: ["電子郵件", "Facebook", "醫療保健網站", "印刷資料"],
+      timing: "早上時段 (上午9-11時)，傍晚時段 (下午5-7時)",
+      tone: "值得信賴、富同理心、易於理解"
     },
     behavior: {
-      decisionMaking: "Cautious, seeks medical validation",
-      responseToOffers: "Values safety and effectiveness over cost",
-      socialInfluence: "Doctor recommendations crucial",
-      brandLoyalty: "High once trust is established"
+      decisionMaking: "謹慎考慮，尋求醫學驗證",
+      responseToOffers: "重視安全性和療效勝於價格",
+      socialInfluence: "醫生推薦至關重要",
+      brandLoyalty: "建立信任後忠誠度高"
     },
     recommendations: [
-      "Emphasize safety and non-invasive nature",
-      "Include doctor endorsements and clinical studies",
-      "Show real seniors using the technology",
-      "Provide clear, step-by-step instructions",
-      "Highlight mobility and independence benefits",
-      "Use larger text and simple navigation"
+      "強調安全性和非侵入性特點",
+      "包含醫生認可和臨床研究證據",
+      "展示真實長者使用情況",
+      "提供清晰的逐步使用指南",
+      "突出改善活動能力和獨立性的益處",
+      "使用較大字體和簡潔導航設計"
     ]
   };
 
@@ -77,13 +77,13 @@ const CustomerProfiling = () => {
     if (file && (file.type === 'text/csv' || file.type === 'application/vnd.ms-excel')) {
       setUploadedFile(file);
       toast({
-        title: "Customer data uploaded",
-        description: `${file.name} ready for analysis`
+        title: "客戶資料已上載",
+        description: `${file.name} 已準備好進行分析`
       });
     } else {
       toast({
-        title: "Invalid file type",
-        description: "Please upload a CSV file",
+        title: "檔案格式無效",
+        description: "請上載CSV檔案",
         variant: "destructive"
       });
     }
@@ -94,8 +94,8 @@ const CustomerProfiling = () => {
     
     if (!uploadedFile && !hasManualData) {
       toast({
-        title: "No customer data provided",
-        description: "Please upload a CSV file or fill in the customer information",
+        title: "未提供客戶資料",
+        description: "請上載CSV檔案或填寫客戶資訊",
         variant: "destructive"
       });
       return;
@@ -111,24 +111,24 @@ const CustomerProfiling = () => {
     setIsAnalyzing(false);
     
     toast({
-      title: "Profile analysis complete!",
-      description: "Customer persona has been generated successfully"
+      title: "客戶輪廓分析完成！",
+      description: "客戶特徵檔案已成功生成"
     });
   };
 
   const loadDemoData = () => {
     setCustomerData({
-      name: "Margaret Chen",
+      name: "陳婆婆",
       age: "68",
-      location: "Portland, OR",
-      interests: "Gardening, Walking, Community activities, Health & Wellness, Grandchildren",
-      pastInteractions: "Visited pain management pages 8 times, downloaded arthritis care guide, attended virtual health seminar, contacted customer service twice",
-      purchaseHistory: "Health supplements: $150/month, Medical devices: $800 annually, Physical therapy sessions: $2,400 annually"
+      location: "香港，沙田區",
+      interests: "園藝種植，散步運動，社區活動，健康養生，照顧孫兒",
+      pastInteractions: "瀏覽疼痛管理頁面8次，下載關節炎護理指南，參加線上健康講座，聯絡客服2次",
+      purchaseHistory: "健康補充品：每月港幣$1,200，醫療設備：每年港幣$6,400，物理治療療程：每年港幣$19,200"
     });
     
     toast({
-      title: "Demo data loaded",
-      description: "Sample pain relief customer profile ready for analysis"
+      title: "示範資料已載入",
+      description: "疼痛緩解客戶樣本檔案已準備好進行分析"
     });
   };
 
@@ -138,10 +138,10 @@ const CustomerProfiling = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Users className="w-5 h-5 text-primary" />
-            Customer Profiling
+            客戶特徵分析
           </CardTitle>
           <CardDescription>
-            Upload customer data or enter information manually to generate detailed personas
+            上載客戶資料或手動輸入資訊以生成詳細的客戶特徵檔案
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -149,7 +149,7 @@ const CustomerProfiling = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* File Upload */}
             <div className="space-y-4">
-              <Label className="text-base font-medium">Upload Customer Data (CSV)</Label>
+              <Label className="text-base font-medium">上載客戶資料 (CSV)</Label>
               <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center hover:border-primary/60 transition-colors">
                 <input
                   type="file"
@@ -160,9 +160,9 @@ const CustomerProfiling = () => {
                 />
                 <label htmlFor="csv-upload" className="cursor-pointer">
                   <Upload className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <p className="text-sm font-medium mb-2">Upload CSV file</p>
+                  <p className="text-sm font-medium mb-2">上載CSV檔案</p>
                   <p className="text-xs text-muted-foreground">
-                    Include columns: name, age, preferences, interactions, etc.
+                    包含欄位：姓名、年齡、喜好、互動紀錄等
                   </p>
                 </label>
                 {uploadedFile && (
@@ -176,51 +176,51 @@ const CustomerProfiling = () => {
 
             {/* Manual Entry */}
             <div className="space-y-4">
-              <Label className="text-base font-medium">Or Enter Customer Information</Label>
+              <Label className="text-base font-medium">或輸入客戶資訊</Label>
               <div className="grid grid-cols-1 gap-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="name">Name</Label>
+                    <Label htmlFor="name">姓名</Label>
                     <Input
                       id="name"
-                      placeholder="Customer name"
+                      placeholder="客戶姓名"
                       value={customerData.name}
                       onChange={(e) => handleInputChange("name", e.target.value)}
                     />
                   </div>
                   <div>
-                    <Label htmlFor="age">Age</Label>
+                    <Label htmlFor="age">年齡</Label>
                     <Input
                       id="age"
-                      placeholder="Age"
+                      placeholder="年齡"
                       value={customerData.age}
                       onChange={(e) => handleInputChange("age", e.target.value)}
                     />
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="location">Location</Label>
+                  <Label htmlFor="location">地區</Label>
                   <Input
                     id="location"
-                    placeholder="City, State"
+                    placeholder="城市，地區"
                     value={customerData.location}
                     onChange={(e) => handleInputChange("location", e.target.value)}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="interests">Interests & Preferences</Label>
+                  <Label htmlFor="interests">興趣及偏好</Label>
                   <Textarea
                     id="interests"
-                    placeholder="Technology, sports, travel..."
+                    placeholder="健康養生、運動康復、家庭活動..."
                     value={customerData.interests}
                     onChange={(e) => handleInputChange("interests", e.target.value)}
                   />
                 </div>
                 <div>
-                  <Label htmlFor="interactions">Past Interactions</Label>
+                  <Label htmlFor="interactions">過往互動紀錄</Label>
                   <Textarea
                     id="interactions"
-                    placeholder="Email clicks, downloads, website visits..."
+                    placeholder="電郵點擊、下載紀錄、網站瀏覽..."
                     value={customerData.pastInteractions}
                     onChange={(e) => handleInputChange("pastInteractions", e.target.value)}
                   />
@@ -232,7 +232,7 @@ const CustomerProfiling = () => {
                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <UserCheck className="w-4 h-4 mr-2" />
-                Load Demo Customer
+                載入示範客戶
               </Button>
             </div>
           </div>
@@ -247,12 +247,12 @@ const CustomerProfiling = () => {
               {isAnalyzing ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Analyzing Profile...
+                  正在分析客戶輪廓...
                 </>
               ) : (
                 <>
                   <Brain className="w-5 h-5 mr-2" />
-                  Analyze Profile
+                  分析客戶輪廓
                 </>
               )}
             </Button>
@@ -264,9 +264,9 @@ const CustomerProfiling = () => {
               <CardContent className="pt-6">
                 <div className="space-y-4">
                   <div className="text-center">
-                    <div className="text-sm font-medium mb-2">Processing Customer Data</div>
+                    <div className="text-sm font-medium mb-2">處理客戶資料中</div>
                     <div className="text-xs text-muted-foreground">
-                      Analyzing demographics • Identifying patterns • Generating persona
+                      分析人口統計資料 • 識別模式 • 生成客戶特徵
                     </div>
                   </div>
                   <div className="flex justify-center">
@@ -293,7 +293,7 @@ const CustomerProfiling = () => {
               <CardTitle className="text-2xl">{profileResults.personaType}</CardTitle>
               <CardDescription>
                 <Badge className="bg-success text-success-foreground">
-                  {profileResults.confidence}% Confidence Match
+                  {profileResults.confidence}% 匹配度
                 </Badge>
               </CardDescription>
             </CardHeader>
@@ -308,30 +308,30 @@ const CustomerProfiling = () => {
                   <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center text-white">
                     <Target className="w-4 h-4" />
                   </div>
-                  Demographics
+                  人口統計資料
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Age Range</Label>
+                    <Label className="text-xs text-muted-foreground">年齡範圍</Label>
                     <p className="font-medium">{profileResults.demographics.ageRange}</p>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Income</Label>
+                    <Label className="text-xs text-muted-foreground">收入水平</Label>
                     <p className="font-medium">{profileResults.demographics.income}</p>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Education</Label>
+                    <Label className="text-xs text-muted-foreground">教育程度</Label>
                     <p className="font-medium">{profileResults.demographics.education}</p>
                   </div>
                   <div className="space-y-2">
-                    <Label className="text-xs text-muted-foreground">Lifestyle</Label>
+                    <Label className="text-xs text-muted-foreground">生活方式</Label>
                     <p className="font-medium">{profileResults.demographics.lifestyle}</p>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-xs text-muted-foreground">Location</Label>
+                  <Label className="text-xs text-muted-foreground">居住地區</Label>
                   <p className="font-medium">{profileResults.demographics.location}</p>
                 </div>
               </CardContent>
@@ -344,12 +344,12 @@ const CustomerProfiling = () => {
                   <div className="w-8 h-8 bg-gradient-success rounded-lg flex items-center justify-center text-white">
                     <Heart className="w-4 h-4" />
                   </div>
-                  Preferences
+                  喜好偏向
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <Label className="text-xs text-muted-foreground mb-2 block">Content Types</Label>
+                  <Label className="text-xs text-muted-foreground mb-2 block">內容類型</Label>
                   <div className="flex flex-wrap gap-2">
                     {profileResults.preferences.contentTypes.map((type, index) => (
                       <Badge key={index} variant="secondary">{type}</Badge>
@@ -357,7 +357,7 @@ const CustomerProfiling = () => {
                   </div>
                 </div>
                 <div>
-                  <Label className="text-xs text-muted-foreground mb-2 block">Preferred Channels</Label>
+                  <Label className="text-xs text-muted-foreground mb-2 block">偏好渠道</Label>
                   <div className="flex flex-wrap gap-2">
                     {profileResults.preferences.channels.map((channel, index) => (
                       <Badge key={index} variant="outline">{channel}</Badge>
@@ -365,11 +365,11 @@ const CustomerProfiling = () => {
                   </div>
                 </div>
                 <div>
-                  <Label className="text-xs text-muted-foreground">Best Timing</Label>
+                  <Label className="text-xs text-muted-foreground">最佳時段</Label>
                   <p className="text-sm">{profileResults.preferences.timing}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-muted-foreground">Tone Preference</Label>
+                  <Label className="text-xs text-muted-foreground">語調偏好</Label>
                   <p className="text-sm">{profileResults.preferences.tone}</p>
                 </div>
               </CardContent>
@@ -383,29 +383,29 @@ const CustomerProfiling = () => {
                 <div className="w-8 h-8 bg-gradient-hero rounded-lg flex items-center justify-center text-white">
                   <TrendingUp className="w-4 h-4" />
                 </div>
-                Behavioral Insights
+                行為洞察
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center">
                   <ShoppingCart className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <Label className="text-xs text-muted-foreground block mb-1">Decision Making</Label>
+                  <Label className="text-xs text-muted-foreground block mb-1">決策模式</Label>
                   <p className="text-sm font-medium">{profileResults.behavior.decisionMaking}</p>
                 </div>
                 <div className="text-center">
                   <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <Label className="text-xs text-muted-foreground block mb-1">Offer Response</Label>
+                  <Label className="text-xs text-muted-foreground block mb-1">優惠反應</Label>
                   <p className="text-sm font-medium">{profileResults.behavior.responseToOffers}</p>
                 </div>
                 <div className="text-center">
                   <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <Label className="text-xs text-muted-foreground block mb-1">Social Influence</Label>
+                  <Label className="text-xs text-muted-foreground block mb-1">社會影響</Label>
                   <p className="text-sm font-medium">{profileResults.behavior.socialInfluence}</p>
                 </div>
                 <div className="text-center">
                   <Heart className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <Label className="text-xs text-muted-foreground block mb-1">Brand Loyalty</Label>
+                  <Label className="text-xs text-muted-foreground block mb-1">品牌忠誠度</Label>
                   <p className="text-sm font-medium">{profileResults.behavior.brandLoyalty}</p>
                 </div>
               </div>
@@ -417,10 +417,10 @@ const CustomerProfiling = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Brain className="w-5 h-5 text-primary" />
-                AI Recommendations
+                AI 建議
               </CardTitle>
               <CardDescription>
-                Personalized marketing strategies based on the customer profile
+                基於客戶特徵的個性化營銷策略
               </CardDescription>
             </CardHeader>
             <CardContent>
