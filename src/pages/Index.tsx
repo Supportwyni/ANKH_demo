@@ -17,6 +17,7 @@ import VisualAnalytics from "@/components/VisualAnalytics";
 import CustomerProfiling from "@/components/CustomerProfiling";
 import CampaignGenerator from "@/components/CampaignGenerator";
 import AITrainingConfiguration from "@/components/AITrainingConfiguration";
+import TelesalesAIInsights from "@/components/TelesalesAIInsights";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -260,12 +261,13 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-card">
+          <TabsList className="grid w-full grid-cols-6 bg-card">
             <TabsTrigger value="overview">概覽</TabsTrigger>
             <TabsTrigger value="analytics">影片分析</TabsTrigger>
             <TabsTrigger value="profiling">客戶特徵分析</TabsTrigger>
             <TabsTrigger value="campaigns">營銷活動生成器</TabsTrigger>
             <TabsTrigger value="training">AI訓練配置</TabsTrigger>
+            <TabsTrigger value="telesales">電話銷售AI</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
@@ -286,6 +288,10 @@ const Index = () => {
 
           <TabsContent value="training">
             <AITrainingConfiguration />
+          </TabsContent>
+
+          <TabsContent value="telesales">
+            <TelesalesAIInsights />
           </TabsContent>
         </Tabs>
       </main>
