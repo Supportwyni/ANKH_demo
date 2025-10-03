@@ -14,7 +14,6 @@ import {
   Sparkles 
 } from "lucide-react";
 import VisualAnalytics from "@/components/VisualAnalytics";
-import CustomerProfiling from "@/components/CustomerProfiling";
 import CampaignGenerator from "@/components/CampaignGenerator";
 import AITrainingConfiguration from "@/components/AITrainingConfiguration";
 import TelesalesAIInsights from "@/components/TelesalesAIInsights";
@@ -87,24 +86,6 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Customer Profiling */}
-            <div className="flex flex-col items-center space-y-3 group">
-              <div className="bg-gradient-success p-6 rounded-xl text-white shadow-success group-hover:scale-105 transition-transform">
-                <Database className="w-10 h-10" />
-              </div>
-              <h3 className="font-semibold text-primary">客戶特徵分析</h3>
-              <p className="text-sm text-muted-foreground text-center max-w-32">
-                深度客戶分析及行為模式映射
-              </p>
-            </div>
-
-            {/* Arrow */}
-            <div className="lg:rotate-0 rotate-90">
-              <div className="w-16 h-0.5 bg-gradient-gold relative">
-                <div className="absolute -right-1.5 -top-1.5 w-4 h-4 bg-gradient-gold rotate-45 rounded-sm"></div>
-              </div>
-            </div>
-
             {/* AI Processing Core */}
             <div className="flex flex-col items-center space-y-3 group">
               <div className="bg-gradient-primary p-6 rounded-xl text-white animate-pulse-soft shadow-glow group-hover:scale-105 transition-transform">
@@ -147,18 +128,6 @@ const Index = () => {
             <CardTitle className="text-white">先進影片分析系統</CardTitle>
             <CardDescription className="text-white/80">
               醫療級AI分析配合精準客戶特徵匹配及參與度預測
-            </CardDescription>
-          </CardHeader>
-        </Card>
-
-        <Card className="hover-lift cursor-pointer card-medical" onClick={() => setActiveTab("profiling")}>
-          <CardHeader>
-            <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark mb-4">
-              <Users className="w-6 h-6" />
-            </div>
-            <CardTitle className="text-white">深度客戶特徵分析</CardTitle>
-            <CardDescription className="text-white/80">
-              全面行為分析配合預測建模及推薦引擎系統
             </CardDescription>
           </CardHeader>
         </Card>
@@ -216,14 +185,6 @@ const Index = () => {
               示範影片分析
             </Button>
             <Button 
-              variant="outline" 
-              onClick={() => setActiveTab("profiling")}
-              className="border-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              <Users className="w-4 h-4 mr-2" />
-              示範特徵分析套裝
-            </Button>
-            <Button 
               onClick={() => setActiveTab("campaigns")}
               className="btn-gold"
             >
@@ -261,10 +222,9 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6 bg-card">
+          <TabsList className="grid w-full grid-cols-5 bg-card">
             <TabsTrigger value="overview">概覽</TabsTrigger>
             <TabsTrigger value="analytics">影片分析</TabsTrigger>
-            <TabsTrigger value="profiling">客戶特徵分析</TabsTrigger>
             <TabsTrigger value="campaigns">營銷活動生成器</TabsTrigger>
             <TabsTrigger value="training">AI訓練配置</TabsTrigger>
             <TabsTrigger value="telesales">電話銷售AI</TabsTrigger>
@@ -276,10 +236,6 @@ const Index = () => {
 
           <TabsContent value="analytics">
             <VisualAnalytics />
-          </TabsContent>
-
-          <TabsContent value="profiling">
-            <CustomerProfiling />
           </TabsContent>
 
           <TabsContent value="campaigns">
