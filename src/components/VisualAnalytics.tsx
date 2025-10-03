@@ -35,142 +35,167 @@ const VisualAnalytics = () => {
 
   const mockAnalysisResults = {
     contentSummary: {
-      keyTopics: ["Product Launch", "Brand Awareness", "Customer Testimonials"],
+      keyTopics: ["Pain Relief Technology", "Clinical Validation", "Patient Testimonials"],
       mainMessages: [
-        "Introducing innovative technology solutions",
-        "Customer success stories and testimonials", 
-        "Call-to-action for early adopters"
+        "Introducing FDA-cleared pain relief technology",
+        "Real patient success stories and outcomes", 
+        "Non-invasive, drug-free pain management solution"
       ],
-      duration: "2:34",
-      wordCount: 287
+      duration: "3:42",
+      wordCount: 324
     },
     toneAnalysis: {
-      primary: "Professional",
-      secondary: "Enthusiastic", 
-      confidence: 92,
+      primary: "Professional Medical",
+      secondary: "Empathetic", 
+      confidence: 95,
       emotions: [
-        { name: "Confident", score: 85 },
-        { name: "Inspiring", score: 78 },
-        { name: "Trustworthy", score: 90 }
+        { name: "Trustworthy", score: 94 },
+        { name: "Compassionate", score: 88 },
+        { name: "Authoritative", score: 91 }
       ]
     },
     visualsBreakdown: {
-      dominantColors: ["#2563EB", "#059669", "#F3F4F6"],
+      dominantColors: ["#1F4B3F", "#F4A261", "#FFFFFF"],
       scenes: [
-        "Modern office environment",
-        "Product demonstration", 
-        "Customer interview setup",
-        "Call-to-action screen"
+        "Clinical healthcare setting",
+        "Patient using device at home", 
+        "Healthcare professional consultation",
+        "Patient mobility improvement"
       ],
-      objects: ["Laptop", "Smartphone", "Office desk", "Professional attire"],
-      style: "Corporate professional with modern aesthetics"
+      objects: ["Pain relief device", "Medical equipment", "Clinical setting", "Comfortable home environment"],
+      style: "Medical professional with warm, approachable aesthetics"
     },
     personaMatch: {
-      bestFit: "Tech-savvy professionals (25-40)",
-      matchScore: 87,
+      bestFit: "Active Senior Seekers (60-75)",
+      matchScore: 94,
       alternativePersonas: [
-        { name: "Young entrepreneurs", score: 73 },
-        { name: "Corporate decision makers", score: 82 },
-        { name: "Early tech adopters", score: 79 }
+        { name: "Post-surgery recovery patients", score: 91 },
+        { name: "Chronic pain patients", score: 86 },
+        { name: "Busy office professionals", score: 82 }
       ]
     },
     // New: Persona-Based Suitability Analysis
     personaSuitability: {
       personas: [
         {
-          id: "tech-pro",
-          name: "Tech-savvy Professional",
-          demographics: "25-40 years, Urban, $60K-100K income",
-          matchScore: 87,
+          id: "active-senior",
+          name: "Active Senior Seeker",
+          demographics: "60-75 years, $40K-80K income, Health-conscious",
+          matchScore: 94,
           suitabilityLevel: "Excellent",
           recommendations: [
-            "Perfect tone alignment - professional yet engaging",
-            "Video length (2:34) matches attention span preferences",
-            "Technical product focus resonates strongly",
-            "Office setting creates relatability"
+            "Perfect tone - trustworthy and empathetic messaging",
+            "Video length ideal for attention span preferences",
+            "Clear demonstration style builds confidence",
+            "Professional medical setting creates credibility"
           ],
           improvements: [
-            "Add more specific technical specifications",
-            "Include ROI metrics and productivity gains",
-            "Consider adding captions for mobile viewing"
+            "Add larger text overlays for better visibility",
+            "Include doctor testimonials and endorsements",
+            "Show seniors successfully using the device"
           ],
           engagementPrediction: {
-            viewCompletion: 78,
-            clickThrough: 12,
-            shareRate: 8,
-            conversionRate: 4.2
+            viewCompletion: 88,
+            clickThrough: 15,
+            shareRate: 6,
+            conversionRate: 8.2
           }
         },
         {
-          id: "entrepreneur",
-          name: "Young Entrepreneur", 
-          demographics: "22-35 years, Mixed locations, Variable income",
-          matchScore: 73,
-          suitabilityLevel: "Good",
-          recommendations: [
-            "Entrepreneurial success stories create inspiration",
-            "Professional tone builds credibility",
-            "Product innovation angle appeals to growth mindset"
-          ],
-          improvements: [
-            "Highlight scalability and growth potential",
-            "Add more dynamic visual elements",
-            "Include startup success metrics",
-            "Shorten to 90 seconds for better retention"
-          ],
-          engagementPrediction: {
-            viewCompletion: 65,
-            clickThrough: 9,
-            shareRate: 12,
-            conversionRate: 3.1
-          }
-        },
-        {
-          id: "executive",
-          name: "Corporate Executive",
-          demographics: "35-55 years, Major cities, $100K+ income", 
+          id: "office-professional",
+          name: "Busy Office Professional", 
+          demographics: "30-45 years, Office workers, Time-constrained",
           matchScore: 82,
           suitabilityLevel: "Very Good",
           recommendations: [
-            "Executive-level messaging resonates well",
-            "Professional production quality meets expectations",
-            "Business case presentation style is appropriate"
+            "Professional tone aligns with target audience",
+            "Compact device showcased fits office lifestyle",
+            "Quick relief messaging matches urgent needs"
           ],
           improvements: [
-            "Add enterprise-level feature highlights",
-            "Include compliance and security mentions",
-            "Feature C-suite testimonials",
-            "Add implementation timeline discussions"
+            "Emphasize portability and discreteness",
+            "Add time-efficiency benefits prominently",
+            "Show usage during work breaks",
+            "Highlight wireless and wearable features"
           ],
           engagementPrediction: {
-            viewCompletion: 85,
-            clickThrough: 15,
-            shareRate: 6,
-            conversionRate: 5.8
+            viewCompletion: 75,
+            clickThrough: 12,
+            shareRate: 8,
+            conversionRate: 6.1
           }
         },
         {
-          id: "creative",
-          name: "Creative Professional",
-          demographics: "28-45 years, Creative hubs, $45K-80K income",
-          matchScore: 61,
-          suitabilityLevel: "Fair",
+          id: "recovery-patient",
+          name: "Post-Surgery Recovery Patient",
+          demographics: "40-60 years, Surgery recovery, Medical validation needed", 
+          matchScore: 91,
+          suitabilityLevel: "Excellent",
           recommendations: [
-            "Professional quality appeals to aesthetic standards",
-            "Innovation angle connects with creative mindset"
+            "Medical-grade messaging builds trust",
+            "Clinical study references resonate strongly",
+            "Professional healthcare setting appropriate"
           ],
           improvements: [
-            "Add more visual creativity and design elements",
-            "Highlight creative workflow benefits", 
-            "Include artistic/design industry use cases",
-            "Use more dynamic camera work and effects",
-            "Feature creative professional testimonials"
+            "Add more clinical evidence and data",
+            "Feature surgeon recommendations",
+            "Include FDA approval mentions",
+            "Show post-operative care integration"
           ],
           engagementPrediction: {
-            viewCompletion: 58,
-            clickThrough: 7,
-            shareRate: 14,
-            conversionRate: 2.4
+            viewCompletion: 92,
+            clickThrough: 18,
+            shareRate: 4,
+            conversionRate: 9.7
+          }
+        },
+        {
+          id: "athlete",
+          name: "Athletic Injury Recovery",
+          demographics: "20-35 years, Athletes, Performance-focused",
+          matchScore: 73,
+          suitabilityLevel: "Good",
+          recommendations: [
+            "Innovation angle appeals to performance mindset",
+            "Technology focus matches audience interests"
+          ],
+          improvements: [
+            "Add sports medicine professional endorsements",
+            "Highlight athletic performance recovery benefits", 
+            "Include competitive athlete testimonials",
+            "Show faster return-to-sport timelines",
+            "Feature sports medicine clinic settings"
+          ],
+          engagementPrediction: {
+            viewCompletion: 68,
+            clickThrough: 10,
+            shareRate: 12,
+            conversionRate: 4.8
+          }
+        },
+        {
+          id: "chronic-pain",
+          name: "Chronic Pain Patient",
+          demographics: "45-65 years, Long-term conditions, Skeptical",
+          matchScore: 86,
+          suitabilityLevel: "Very Good",
+          recommendations: [
+            "Empathetic tone addresses chronic struggles",
+            "Evidence-based approach builds credibility",
+            "Long-term solution messaging resonates"
+          ],
+          improvements: [
+            "Add more patient success stories",
+            "Include long-term study results",
+            "Feature lifestyle improvement testimonials",
+            "Emphasize drug-free alternative benefits",
+            "Show daily life integration examples"
+          ],
+          engagementPrediction: {
+            viewCompletion: 85,
+            clickThrough: 16,
+            shareRate: 7,
+            conversionRate: 7.4
           }
         }
       ]
@@ -214,16 +239,16 @@ const VisualAnalytics = () => {
     setIsAnalyzing(false);
     
     toast({
-      title: "Analysis complete!",
-      description: "AI has successfully analyzed your video content"
+      title: "Medical video analysis complete!",
+      description: "ANKH AI has successfully analyzed your pain relief content"
     });
   };
 
   const loadDemoVideo = () => {
     setVideoUrl("https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4");
     toast({
-      title: "Demo video loaded",
-      description: "Sample marketing video ready for analysis"
+      title: "Demo pain relief video loaded",
+      description: "Sample ANKH medical technology video ready for analysis"
     });
   };
 
@@ -233,10 +258,10 @@ const VisualAnalytics = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Video className="w-5 h-5 text-primary" />
-            Visual Analytics
+            ANKH Video Intelligence System
           </CardTitle>
           <CardDescription>
-            Upload marketing videos for AI-powered content analysis and persona matching
+            Upload pain relief marketing videos for advanced AI analysis and patient persona matching
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">

@@ -31,59 +31,59 @@ const CampaignGenerator = () => {
   const { toast } = useToast();
 
   const mockVideos = [
-    { id: "video1", name: "Tech Product Launch", analysis: "Professional tone, 87% persona match" },
-    { id: "video2", name: "Customer Success Story", analysis: "Inspiring tone, 92% persona match" },
-    { id: "demo", name: "Demo Marketing Video", analysis: "Enthusiastic tone, 85% persona match" }
+    { id: "video1", name: "ANKH Pain Relief Demo", analysis: "Professional medical tone, 94% senior match" },
+    { id: "video2", name: "Patient Success Stories", analysis: "Empathetic tone, 91% recovery patient match" },
+    { id: "demo", name: "Clinical Technology Overview", analysis: "Educational tone, 86% chronic pain match" }
   ];
 
   const mockProfiles = [
-    { id: "profile1", name: "Sarah Johnson - Tech Professional", persona: "Tech-savvy Millennial" },
-    { id: "profile2", name: "Mike Chen - Early Adopter", persona: "Innovation Enthusiast" },
-    { id: "demo", name: "Demo Customer Profile", persona: "Tech-savvy Professional" }
+    { id: "profile1", name: "Margaret Chen - Active Senior", persona: "Active Senior Seeker" },
+    { id: "profile2", name: "David Kim - Office Professional", persona: "Busy Office Professional" },
+    { id: "demo", name: "Demo Pain Relief Customer", persona: "Post-Surgery Recovery Patient" }
   ];
 
   const mockCampaignResults = {
     suitability: {
-      matchScore: 87,
+      matchScore: 94,
       recommendations: [
-        "Video length is optimal for target persona (2:34 minutes)",
-        "Professional tone aligns well with customer preferences",
-        "Consider adding more data points for tech-savvy audience",
-        "Current pacing matches attention span expectations"
+        "Video tone perfectly matches senior audience preferences (empathetic, trustworthy)",
+        "Medical professional presentation builds essential credibility", 
+        "Clear, slow-paced demonstrations ideal for age group",
+        "Healthcare setting creates comfort and familiarity"
       ],
       improvements: [
-        "Add captions for mobile viewing",
-        "Include interactive elements in first 15 seconds",
-        "Emphasize ROI metrics more prominently"
+        "Add closed captions for accessibility",
+        "Include larger text overlays for better readability",
+        "Feature more diverse senior demographics"
       ]
     },
     textCorrections: {
-      original: "Check out our amazing new product that will revolutionize your workflow!",
-      suggested: "Discover how our AI-powered solution can reduce your project completion time by 40% - join 10,000+ professionals already saving 2 hours daily.",
+      original: "Try our amazing new pain relief device that will change your life!",
+      suggested: "Discover clinically-proven, non-invasive pain relief technology trusted by healthcare professionals - regain your active lifestyle safely and effectively.",
       changes: [
-        { type: "improvement", text: "Added specific metrics (40% time reduction)" },
-        { type: "improvement", text: "Included social proof (10,000+ users)" },
-        { type: "improvement", text: "Quantified benefit (2 hours daily)" },
-        { type: "tone", text: "Shifted from generic to data-driven language" }
+        { type: "improvement", text: "Added clinical validation and safety emphasis" },
+        { type: "improvement", text: "Included healthcare professional endorsement" },
+        { type: "improvement", text: "Focused on lifestyle benefits and mobility" },
+        { type: "tone", text: "Shifted from hype to trustworthy, medical language" }
       ]
     },
     campaignPreview: {
       email: {
-        subject: "Sarah, reduce your project time by 40% with AI",
-        preview: "See how 10,000+ professionals are saving 2 hours daily...",
-        body: "Hi Sarah,\n\nAs a tech professional in San Francisco, you know that efficiency is everything. That's why I wanted to share something that could save you 2 hours every day.\n\nOur AI-powered platform has helped over 10,000 professionals like you reduce project completion time by 40%. The attached video shows exactly how it works.\n\n[Watch Video: 2:34]\n\nReady to join other San Francisco professionals who've already made the switch?\n\nBest regards,\nThe ANKH AI Team"
+        subject: "Margaret, regain your gardening comfort with proven pain relief",
+        preview: "Join thousands who've returned to active lifestyles...",
+        body: "Dear Margaret,\n\nAs someone who values an active lifestyle in Portland, you understand how joint discomfort can limit the activities you love - like tending to your garden.\n\nOur FDA-cleared pain relief technology has helped over 15,000 seniors like you return to their favorite activities without relying on medications.\n\n[Watch Margaret's Story: 3:42]\n\n✓ Clinically proven results\n✓ Non-invasive and drug-free\n✓ Used by healthcare professionals\n✓ 30-day satisfaction guarantee\n\nReady to get back to your garden pain-free?\n\nWarm regards,\nThe ANKH Medical Team"
       },
       socialMedia: {
-        platform: "LinkedIn",
-        post: "🚀 Tech professionals: What if you could get back 2 hours of your day?\n\nOur latest case study with @SarahJohnson shows exactly how AI automation reduced her project time by 40%.\n\nSee the full breakdown in our new video 👇\n\n#TechProfessionals #AI #Productivity #SanFrancisco",
-        engagement: "Optimized for professional network sharing"
+        platform: "Facebook",
+        post: "🌱 Gardening shouldn't hurt! \n\nMeet Margaret from Portland - at 68, chronic joint pain was keeping her from her beloved garden. \n\nDiscover how she returned to pain-free gardening with clinically-proven ANKH technology.\n\n👩‍⚕️ Trusted by healthcare professionals\n🏥 FDA-cleared for safety\n💊 Drug-free pain relief\n\n#PainRelief #ActiveAging #Gardening #HealthTech",
+        engagement: "Optimized for senior Facebook community sharing"
       }
     },
     targeting: {
-      audienceSize: "2,847 similar profiles",
-      channels: ["Email", "LinkedIn", "Retargeting Ads"],
-      timing: "Tuesday-Thursday, 6-8 PM PST",
-      budget: "$1,200 estimated reach"
+      audienceSize: "12,847 similar profiles",
+      channels: ["Email", "Facebook", "Healthcare websites"],
+      timing: "Tuesday-Thursday, 9-11 AM PST",
+      budget: "$2,400 estimated reach"
     }
   };
 
@@ -121,8 +121,8 @@ const CampaignGenerator = () => {
     setIsTriggering(false);
     
     toast({
-      title: "Campaign launched successfully!",
-      description: "Campaign sent to 5 matching prospects"
+      title: "Pain relief campaign launched successfully!",
+      description: "Campaign sent to 247 matching pain relief prospects"
     });
   };
 

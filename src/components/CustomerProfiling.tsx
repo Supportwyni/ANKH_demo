@@ -37,34 +37,34 @@ const CustomerProfiling = () => {
   const { toast } = useToast();
 
   const mockProfileResults = {
-    personaType: "Tech-savvy Millennial Professional",
-    confidence: 89,
+    personaType: "Active Senior Seeker",
+    confidence: 92,
     demographics: {
-      ageRange: "28-35",
-      income: "$65,000 - $95,000",
-      education: "Bachelor's degree or higher",
-      location: "Urban areas, major cities",
-      lifestyle: "Fast-paced, digital-first"
+      ageRange: "60-75",
+      income: "$40,000 - $80,000",
+      education: "High school to college",
+      location: "Suburban and rural areas",
+      lifestyle: "Active retirement, health-conscious"
     },
     preferences: {
-      contentTypes: ["Short videos (30-60s)", "Interactive content", "Social proof"],
-      channels: ["LinkedIn", "Instagram", "Email", "YouTube"],
-      timing: "Weekday evenings (6-8 PM), Weekend mornings",
-      tone: "Professional yet approachable, data-driven"
+      contentTypes: ["Educational videos (3-5 mins)", "Testimonials", "Clear demonstrations"],
+      channels: ["Email", "Facebook", "Healthcare websites", "Print materials"],
+      timing: "Morning hours (9-11 AM), Early evening (5-7 PM)",
+      tone: "Trustworthy, empathetic, easy to understand"
     },
     behavior: {
-      decisionMaking: "Research-oriented, compares options",
-      responseToOffers: "Values quality over price",
-      socialInfluence: "Peer recommendations important",
-      brandLoyalty: "Moderate - open to switching for better value"
+      decisionMaking: "Cautious, seeks medical validation",
+      responseToOffers: "Values safety and effectiveness over cost",
+      socialInfluence: "Doctor recommendations crucial",
+      brandLoyalty: "High once trust is established"
     },
     recommendations: [
-      "Use professional, clean video aesthetics",
-      "Include data points and statistics",
-      "Highlight time-saving benefits",
-      "Feature customer testimonials",
-      "Optimize for mobile viewing",
-      "Include clear call-to-action buttons"
+      "Emphasize safety and non-invasive nature",
+      "Include doctor endorsements and clinical studies",
+      "Show real seniors using the technology",
+      "Provide clear, step-by-step instructions",
+      "Highlight mobility and independence benefits",
+      "Use larger text and simple navigation"
     ]
   };
 
@@ -118,17 +118,17 @@ const CustomerProfiling = () => {
 
   const loadDemoData = () => {
     setCustomerData({
-      name: "Sarah Johnson",
-      age: "32",
-      location: "San Francisco, CA",
-      interests: "Technology, Productivity, Health & Wellness, Travel",
-      pastInteractions: "Downloaded 3 whitepapers, attended 2 webinars, clicked on email links 15 times in past month",
-      purchaseHistory: "SaaS subscriptions: $200/month, Tech gadgets: $1,200 annually, Online courses: $500 annually"
+      name: "Margaret Chen",
+      age: "68",
+      location: "Portland, OR",
+      interests: "Gardening, Walking, Community activities, Health & Wellness, Grandchildren",
+      pastInteractions: "Visited pain management pages 8 times, downloaded arthritis care guide, attended virtual health seminar, contacted customer service twice",
+      purchaseHistory: "Health supplements: $150/month, Medical devices: $800 annually, Physical therapy sessions: $2,400 annually"
     });
     
     toast({
       title: "Demo data loaded",
-      description: "Sample customer profile ready for analysis"
+      description: "Sample pain relief customer profile ready for analysis"
     });
   };
 
