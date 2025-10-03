@@ -23,7 +23,13 @@ import {
   Eye,
   MousePointer,
   Share2,
-  ShoppingCart
+  ShoppingCart,
+  ShieldCheck,
+  AlertCircle,
+  XCircle,
+  Volume2,
+  ImageIcon,
+  Flag
 } from "lucide-react";
 
 const VisualAnalytics = () => {
@@ -31,6 +37,7 @@ const VisualAnalytics = () => {
   const [analysisResults, setAnalysisResults] = useState(null);
   const [uploadedFile, setUploadedFile] = useState(null);
   const [videoUrl, setVideoUrl] = useState("");
+  const [approvalStatus, setApprovalStatus] = useState<"pending" | "approved" | "rejected">("pending");
   const { toast } = useToast();
 
   const mockAnalysisResults = {
@@ -199,6 +206,85 @@ const VisualAnalytics = () => {
           }
         }
       ]
+    },
+    // Compliance & Wording Accuracy Check
+    complianceCheck: {
+      overallStatus: "警告", // "通過", "警告", "不通過"
+      overallScore: 78,
+      visualCompliance: {
+        status: "通過",
+        score: 92,
+        checks: [
+          { item: "字體大小及清晰度", passed: true, note: "所有文字符合可讀性標準" },
+          { item: "色彩對比度", passed: true, note: "符合WCAG AA標準" },
+          { item: "場景專業度", passed: true, note: "醫療環境呈現專業" },
+          { item: "品牌一致性", passed: true, note: "符合ANKH品牌指引" }
+        ]
+      },
+      audioCompliance: {
+        status: "通過",
+        score: 88,
+        checks: [
+          { item: "背景音樂音量", passed: true, note: "不影響語音清晰度" },
+          { item: "語速適當性", passed: true, note: "每分鐘150字，適合目標受眾" },
+          { item: "發音清晰度", passed: true, note: "粵語發音標準清晰" }
+        ]
+      },
+      wordingAccuracy: {
+        status: "警告",
+        score: 65,
+        issues: [
+          {
+            type: "over-statement",
+            severity: "高",
+            location: "00:45 - 00:52",
+            text: "完全消除膝痛，兩週見效",
+            issue: "使用絕對性用語「完全消除」可能構成誇大療效",
+            suggestion: "建議改為：「有效緩解膝痛症狀，臨床研究顯示兩週內可見改善」",
+            regulatoryRisk: "中等 - 可能違反醫療廣告規範"
+          },
+          {
+            type: "sensitive-wording",
+            severity: "中",
+            location: "01:23 - 01:30",
+            text: "唯一FDA認可的痛症解決方案",
+            issue: "使用「唯一」暗示排他性，可能誤導消費者",
+            suggestion: "建議改為：「FDA認可的痛症緩解方案之一」",
+            regulatoryRisk: "低 - 建議修正以避免爭議"
+          },
+          {
+            type: "medical-claim",
+            severity: "中",
+            location: "02:15 - 02:28",
+            text: "適用於所有類型慢性痛症",
+            issue: "過於廣泛的醫療聲明，缺乏具體限制",
+            suggestion: "建議改為：「適用於多種常見慢性痛症，包括關節炎、肌肉勞損等（請諮詢醫生）」",
+            regulatoryRisk: "中等 - 需要加入免責聲明"
+          }
+        ],
+        passedChecks: [
+          { item: "避免政治敏感用語", status: "通過" },
+          { item: "無歧視性語言", status: "通過" },
+          { item: "無性別刻板印象", status: "通過" },
+          { item: "尊重文化多樣性", status: "通過" }
+        ]
+      },
+      fraudIndicators: {
+        status: "低風險",
+        score: 15,
+        flags: [
+          { indicator: "誇大療效", detected: true, risk: "中", note: "發現2處誇大用語" },
+          { indicator: "虛假證書", detected: false, risk: "無", note: "所有認證經驗證" },
+          { indicator: "誤導性價格", detected: false, risk: "無", note: "價格資訊透明" },
+          { indicator: "假見證", detected: false, risk: "無", note: "病人見證已驗證" }
+        ]
+      },
+      recommendations: [
+        "修正3處用詞以符合醫療廣告規範",
+        "加入適當的醫療免責聲明",
+        "在片尾加入「請諮詢醫生」提示",
+        "確保所有療效聲明有臨床數據支持"
+      ]
     }
   };
 
@@ -237,6 +323,7 @@ const VisualAnalytics = () => {
 
     setAnalysisResults(mockAnalysisResults);
     setIsAnalyzing(false);
+    setApprovalStatus("pending");
     
     toast({
       title: "醫療影片分析完成！",
@@ -685,7 +772,316 @@ const VisualAnalytics = () => {
                   </Card>
                 </AccordionContent>
               </AccordionItem>
+
+              {/* Compliance & Wording Accuracy Check */}
+              <AccordionItem value="compliance" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-left">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-white ${
+                      analysisResults.complianceCheck.overallStatus === '通過' 
+                        ? 'bg-success' 
+                        : analysisResults.complianceCheck.overallStatus === '警告'
+                        ? 'bg-warning'
+                        : 'bg-destructive'
+                    }`}>
+                      <ShieldCheck className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-medium">表現合規及用詞準確性檢查</div>
+                      <div className="text-sm text-muted-foreground">
+                        整體狀態: {analysisResults.complianceCheck.overallStatus} • 分數 {analysisResults.complianceCheck.overallScore}/100
+                      </div>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="space-y-6 pt-4">
+                  {/* Visual Compliance */}
+                  <Card className="bg-success/5 border-success/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <ImageIcon className="w-5 h-5 text-success" />
+                          <h4 className="font-medium">視覺合規檢查</h4>
+                        </div>
+                        <Badge className="bg-success text-success-foreground">
+                          {analysisResults.complianceCheck.visualCompliance.status} • {analysisResults.complianceCheck.visualCompliance.score}/100
+                        </Badge>
+                      </div>
+                      <div className="space-y-2">
+                        {analysisResults.complianceCheck.visualCompliance.checks.map((check, index) => (
+                          <div key={index} className="flex items-start gap-2 text-sm">
+                            <CheckCircle className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                            <div>
+                              <span className="font-medium">{check.item}:</span>
+                              <span className="text-muted-foreground ml-1">{check.note}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Audio Compliance */}
+                  <Card className="bg-success/5 border-success/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <Volume2 className="w-5 h-5 text-success" />
+                          <h4 className="font-medium">音頻合規檢查</h4>
+                        </div>
+                        <Badge className="bg-success text-success-foreground">
+                          {analysisResults.complianceCheck.audioCompliance.status} • {analysisResults.complianceCheck.audioCompliance.score}/100
+                        </Badge>
+                      </div>
+                      <div className="space-y-2">
+                        {analysisResults.complianceCheck.audioCompliance.checks.map((check, index) => (
+                          <div key={index} className="flex items-start gap-2 text-sm">
+                            <CheckCircle className="w-4 h-4 text-success flex-shrink-0 mt-0.5" />
+                            <div>
+                              <span className="font-medium">{check.item}:</span>
+                              <span className="text-muted-foreground ml-1">{check.note}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Wording Accuracy Issues */}
+                  <Card className="bg-warning/5 border-warning/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <AlertTriangle className="w-5 h-5 text-warning" />
+                          <h4 className="font-medium">用詞準確性問題</h4>
+                        </div>
+                        <Badge variant="outline" className="border-warning text-warning">
+                          {analysisResults.complianceCheck.wordingAccuracy.status} • {analysisResults.complianceCheck.wordingAccuracy.score}/100
+                        </Badge>
+                      </div>
+                      <div className="space-y-4">
+                        {analysisResults.complianceCheck.wordingAccuracy.issues.map((issue, index) => (
+                          <div key={index} className="border-l-4 border-warning pl-4 py-2">
+                            <div className="flex items-start justify-between mb-2">
+                              <div className="flex items-center gap-2">
+                                <Badge variant="destructive" className="text-xs">
+                                  嚴重度: {issue.severity}
+                                </Badge>
+                                <span className="text-xs text-muted-foreground">{issue.location}</span>
+                              </div>
+                            </div>
+                            <div className="space-y-2 text-sm">
+                              <div>
+                                <span className="font-medium">原文:</span>
+                                <p className="text-muted-foreground italic">「{issue.text}」</p>
+                              </div>
+                              <div>
+                                <span className="font-medium text-destructive">問題:</span>
+                                <p className="text-muted-foreground">{issue.issue}</p>
+                              </div>
+                              <div>
+                                <span className="font-medium text-success">建議:</span>
+                                <p className="text-muted-foreground">{issue.suggestion}</p>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <Flag className="w-3 h-3 text-warning" />
+                                <span className="text-xs text-warning">{issue.regulatoryRisk}</span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 pt-4 border-t">
+                        <h5 className="text-sm font-medium mb-2 text-success">✓ 已通過檢查項目:</h5>
+                        <div className="grid grid-cols-2 gap-2">
+                          {analysisResults.complianceCheck.wordingAccuracy.passedChecks.map((check, index) => (
+                            <div key={index} className="flex items-center gap-2 text-xs">
+                              <CheckCircle className="w-3 h-3 text-success" />
+                              <span>{check.item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Fraud Indicators */}
+                  <Card className="bg-primary/5 border-primary/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <ShieldCheck className="w-5 h-5 text-primary" />
+                          <h4 className="font-medium">詐騙及誤導指標</h4>
+                        </div>
+                        <Badge className="bg-success text-success-foreground">
+                          {analysisResults.complianceCheck.fraudIndicators.status}
+                        </Badge>
+                      </div>
+                      <div className="space-y-2">
+                        {analysisResults.complianceCheck.fraudIndicators.flags.map((flag, index) => (
+                          <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
+                            <div className="flex items-center gap-2">
+                              {flag.detected ? (
+                                <AlertCircle className="w-4 h-4 text-warning" />
+                              ) : (
+                                <CheckCircle className="w-4 h-4 text-success" />
+                              )}
+                              <span className="text-sm font-medium">{flag.indicator}</span>
+                            </div>
+                            <div className="text-right">
+                              <Badge variant={flag.detected ? "destructive" : "outline"} className="text-xs">
+                                {flag.risk}
+                              </Badge>
+                              <p className="text-xs text-muted-foreground mt-1">{flag.note}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Recommendations */}
+                  <Card className="card-gold-accent bg-gradient-subtle">
+                    <CardContent className="pt-6">
+                      <h4 className="font-medium mb-3 flex items-center gap-2">
+                        <TrendingUp className="w-4 h-4" />
+                        改善建議
+                      </h4>
+                      <ul className="space-y-2">
+                        {analysisResults.complianceCheck.recommendations.map((rec, index) => (
+                          <li key={index} className="flex items-start gap-2 text-sm">
+                            <span className="w-5 h-5 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs flex-shrink-0">
+                              {index + 1}
+                            </span>
+                            <span>{rec}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </AccordionContent>
+              </AccordionItem>
             </Accordion>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Approval Workflow */}
+      {analysisResults && (
+        <Card className="card-elevated">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-primary" />
+              影片審批工作流程
+            </CardTitle>
+            <CardDescription>
+              確認影片符合合規及準確性要求後批准發佈
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {/* Status Display */}
+            <div className="flex items-center justify-center gap-4 p-6 bg-gradient-subtle rounded-lg border">
+              <div className="text-center">
+                <div className={`w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-2 ${
+                  approvalStatus === 'approved' 
+                    ? 'bg-success text-success-foreground' 
+                    : approvalStatus === 'rejected'
+                    ? 'bg-destructive text-destructive-foreground'
+                    : 'bg-warning text-warning-foreground'
+                }`}>
+                  {approvalStatus === 'approved' && <CheckCircle className="w-8 h-8" />}
+                  {approvalStatus === 'rejected' && <XCircle className="w-8 h-8" />}
+                  {approvalStatus === 'pending' && <AlertCircle className="w-8 h-8" />}
+                </div>
+                <div className="font-medium text-lg">
+                  {approvalStatus === 'approved' && '已批准發佈'}
+                  {approvalStatus === 'rejected' && '已拒絕發佈'}
+                  {approvalStatus === 'pending' && '等待審批'}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  {approvalStatus === 'approved' && '影片已通過所有檢查，可以發佈'}
+                  {approvalStatus === 'rejected' && '影片需要修正後重新提交'}
+                  {approvalStatus === 'pending' && '請檢查分析結果並決定是否批准'}
+                </div>
+              </div>
+            </div>
+
+            {/* Compliance Summary */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-4 border rounded-lg text-center">
+                <div className="text-2xl font-bold text-success mb-1">
+                  {analysisResults.complianceCheck.visualCompliance.score}
+                </div>
+                <div className="text-xs text-muted-foreground">視覺合規分數</div>
+              </div>
+              <div className="p-4 border rounded-lg text-center">
+                <div className="text-2xl font-bold text-success mb-1">
+                  {analysisResults.complianceCheck.audioCompliance.score}
+                </div>
+                <div className="text-xs text-muted-foreground">音頻合規分數</div>
+              </div>
+              <div className="p-4 border rounded-lg text-center">
+                <div className="text-2xl font-bold text-warning mb-1">
+                  {analysisResults.complianceCheck.wordingAccuracy.score}
+                </div>
+                <div className="text-xs text-muted-foreground">用詞準確性分數</div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            {approvalStatus === 'pending' && (
+              <div className="flex gap-4 justify-center">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => {
+                    setApprovalStatus('rejected');
+                    toast({
+                      title: "影片已拒絕",
+                      description: "影片需要根據建議進行修正",
+                      variant: "destructive"
+                    });
+                  }}
+                  className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                >
+                  <XCircle className="w-5 h-5 mr-2" />
+                  拒絕發佈
+                </Button>
+                <Button
+                  size="lg"
+                  onClick={() => {
+                    setApprovalStatus('approved');
+                    toast({
+                      title: "影片已批准！",
+                      description: "影片可以正式發佈到營銷渠道",
+                      className: "bg-success text-success-foreground"
+                    });
+                  }}
+                  className="bg-success hover:bg-success/90 text-success-foreground"
+                >
+                  <CheckCircle className="w-5 h-5 mr-2" />
+                  批准發佈
+                </Button>
+              </div>
+            )}
+
+            {approvalStatus !== 'pending' && (
+              <div className="flex justify-center">
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setApprovalStatus('pending');
+                    toast({
+                      title: "狀態已重設",
+                      description: "可以重新審批影片"
+                    });
+                  }}
+                >
+                  重新審批
+                </Button>
+              </div>
+            )}
           </CardContent>
         </Card>
       )}
