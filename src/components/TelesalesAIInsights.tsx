@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { useToast } from "@/hooks/use-toast";
+import { useHktChat } from "@/hooks/useHktChat";
+import { testHktApi } from "@/lib/testHktApi";
 import { 
   Mic, 
   FileAudio, 
@@ -25,7 +27,11 @@ import {
   Target,
   Brain,
   BarChart3,
-  Lightbulb
+  Lightbulb,
+  Send,
+  X,
+  Bot,
+  User
 } from "lucide-react";
 
 const TelesalesAIInsights = () => {
@@ -35,6 +41,10 @@ const TelesalesAIInsights = () => {
   const [uploadedAudio, setUploadedAudio] = useState<File | null>(null);
   const [currentScript, setCurrentScript] = useState("");
   const { toast } = useToast();
+  
+  // HKT Chat integration
+  const { messages, isLoading, error, send, abort, clearMessages } = useHktChat();
+  const chatInputRef = useRef<HTMLInputElement>(null);
 
   // Mock data for demonstration
   const callAnalysisData = {
@@ -152,6 +162,61 @@ const TelesalesAIInsights = () => {
     });
   };
 
+  const handleChatSend = async () => {
+    const content = chatInputRef.current?.value?.trim();
+    if (!content) return;
+    
+    try {
+      await send(content);
+      if (chatInputRef.current) {
+        chatInputRef.current.value = '';
+      }
+    } catch (err) {
+      toast({
+        title: "發送失敗",
+        description: "無法發送訊息，請稍後再試",
+        variant: "destructive"
+      });
+    }
+  };
+
+  const handleChatKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleChatSend();
+    }
+  };
+
+  const handleTestApi = async () => {
+    toast({
+      title: "測試API連接中...",
+      description: "正在驗證HKT API連接",
+    });
+
+    try {
+      const result = await testHktApi();
+      
+      if (result.success) {
+        toast({
+          title: "✅ API連接成功",
+          description: "HKT API正常工作，可以開始聊天",
+        });
+      } else {
+        toast({
+          title: "❌ API連接失敗",
+          description: result.error || "未知錯誤",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "❌ 測試失敗",
+        description: "無法測試API連接",
+        variant: "destructive"
+      });
+    }
+  };
+
   const getScoreColor = (score: number) => {
     if (score >= 80) return "text-success";
     if (score >= 60) return "text-warning";
@@ -184,7 +249,7 @@ const TelesalesAIInsights = () => {
 
         {/* Main Content Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 bg-card">
+          <TabsList className="grid w-full grid-cols-3 bg-card">
             <TabsTrigger value="analysis" className="flex items-center gap-2">
               <BarChart3 className="w-4 h-4" />
               通話分析
@@ -192,6 +257,10 @@ const TelesalesAIInsights = () => {
             <TabsTrigger value="script-tuning" className="flex items-center gap-2">
               <Edit3 className="w-4 h-4" />
               腳本優化
+            </TabsTrigger>
+            <TabsTrigger value="ai-chat" className="flex items-center gap-2">
+              <MessageSquare className="w-4 h-4" />
+              AI助手
             </TabsTrigger>
           </TabsList>
 
@@ -518,6 +587,167 @@ const TelesalesAIInsights = () => {
                     <div className="text-2xl font-bold">6.5分</div>
                     <p className="text-xs text-muted-foreground">平均通話時長</p>
                   </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* AI Chat Tab */}
+          <TabsContent value="ai-chat" className="space-y-6">
+            <Card className="card-professional">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Bot className="w-5 h-5 text-primary" />
+                  AI銷售助手
+                </CardTitle>
+                <CardDescription>
+                  與AI助手對話，獲得即時的銷售建議和腳本優化指導
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Chat Messages */}
+                <div className="h-[400px] overflow-y-auto border rounded-lg p-4 bg-muted/20">
+                  {messages.length === 0 ? (
+                    <div className="flex items-center justify-center h-full text-muted-foreground">
+                      <div className="text-center">
+                        <Bot className="w-12 h-12 mx-auto mb-4 text-muted-foreground/50" />
+                        <p>開始與AI助手對話，獲得專業的銷售建議</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {messages.map((message, index) => (
+                        <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                          <div className={`max-w-[80%] flex items-start gap-2 ${
+                            message.role === 'user' ? 'flex-row-reverse' : 'flex-row'
+                          }`}>
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                              message.role === 'user' 
+                                ? 'bg-primary text-primary-foreground' 
+                                : 'bg-muted text-muted-foreground'
+                            }`}>
+                              {message.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+                            </div>
+                            <div className={`px-4 py-2 rounded-lg ${
+                              message.role === 'user'
+                                ? 'bg-primary text-primary-foreground'
+                                : message.role === 'system'
+                                ? 'bg-destructive/10 text-destructive border border-destructive/20'
+                                : 'bg-card border'
+                            }`}>
+                              <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                      {isLoading && (
+                        <div className="flex justify-start">
+                          <div className="flex items-start gap-2">
+                            <div className="w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center">
+                              <Bot className="w-4 h-4" />
+                            </div>
+                            <div className="bg-card border px-4 py-2 rounded-lg">
+                              <div className="flex items-center gap-2">
+                                <div className="animate-spin rounded-full h-4 w-4 border-2 border-primary border-t-transparent" />
+                                <span className="text-sm text-muted-foreground">AI正在思考...</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Error Display */}
+                {error && (
+                  <div className="p-3 bg-destructive/10 border border-destructive/20 rounded-lg">
+                    <div className="flex items-center gap-2 text-destructive">
+                      <AlertTriangle className="w-4 h-4" />
+                      <span className="text-sm font-medium">錯誤</span>
+                    </div>
+                    <p className="text-sm text-destructive mt-1">{error}</p>
+                  </div>
+                )}
+
+                {/* Chat Input */}
+                <div className="flex gap-2">
+                  <Input
+                    ref={chatInputRef}
+                    placeholder="輸入您的問題或請求..."
+                    onKeyPress={handleChatKeyPress}
+                    disabled={isLoading}
+                    className="flex-1"
+                  />
+                  <Button
+                    onClick={handleChatSend}
+                    disabled={isLoading}
+                    className="btn-primary"
+                  >
+                    {isLoading ? (
+                      <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
+                  </Button>
+                  {isLoading && (
+                    <Button
+                      onClick={abort}
+                      variant="outline"
+                      size="icon"
+                    >
+                      <X className="w-4 h-4" />
+                    </Button>
+                  )}
+                </div>
+
+                {/* Quick Actions */}
+                <div className="flex gap-2 flex-wrap">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={handleTestApi}
+                    disabled={isLoading}
+                  >
+                    <Zap className="w-4 h-4 mr-2" />
+                    測試API
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => send("請幫我分析這個銷售腳本的效果")}
+                    disabled={isLoading}
+                  >
+                    <BarChart3 className="w-4 h-4 mr-2" />
+                    分析腳本
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => send("給我一些提高轉換率的建議")}
+                    disabled={isLoading}
+                  >
+                    <TrendingUp className="w-4 h-4 mr-2" />
+                    轉換建議
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => send("如何處理客戶的異議？")}
+                    disabled={isLoading}
+                  >
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    異議處理
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={clearMessages}
+                    disabled={isLoading}
+                  >
+                    <X className="w-4 h-4 mr-2" />
+                    清除對話
+                  </Button>
                 </div>
               </CardContent>
             </Card>
