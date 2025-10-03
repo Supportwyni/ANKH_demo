@@ -18,11 +18,14 @@ import {
   Zap,
   CheckCircle,
   AlertCircle,
-  Upload as UploadIcon 
+  Upload as UploadIcon,
+  Volume2
 } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const AITrainingConfiguration = () => {
   const [trainingPrompt, setTrainingPrompt] = useState("");
+  const [analyticsType, setAnalyticsType] = useState<"video" | "audio">("video");
   const [selectedDataSource, setSelectedDataSource] = useState("");
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -142,6 +145,35 @@ const AITrainingConfiguration = () => {
               <p className="text-xs text-muted-foreground">
                 請詳細描述訓練目標、應用場景及預期成效
               </p>
+            </div>
+
+            {/* Analytics Type Selection */}
+            <div className="space-y-3">
+              <Label className="text-sm font-medium">
+                分析類型選擇
+              </Label>
+              <RadioGroup value={analyticsType} onValueChange={(value: "video" | "audio") => setAnalyticsType(value)}>
+                <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                  <RadioGroupItem value="video" id="video-analytics" />
+                  <Label htmlFor="video-analytics" className="flex items-center gap-2 cursor-pointer flex-1">
+                    <FileVideo className="w-4 h-4 text-primary" />
+                    <div>
+                      <p className="font-medium">影片分析訓練</p>
+                      <p className="text-xs text-muted-foreground">訓練模型進行影片內容、視覺元素及畫面分析</p>
+                    </div>
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer">
+                  <RadioGroupItem value="audio" id="audio-analytics" />
+                  <Label htmlFor="audio-analytics" className="flex items-center gap-2 cursor-pointer flex-1">
+                    <Volume2 className="w-4 h-4 text-primary" />
+                    <div>
+                      <p className="font-medium">音訊分析訓練</p>
+                      <p className="text-xs text-muted-foreground">訓練模型進行語音、語調、情感及對話分析</p>
+                    </div>
+                  </Label>
+                </div>
+              </RadioGroup>
             </div>
 
             {/* Data Source Selection */}
@@ -337,6 +369,23 @@ const AITrainingConfiguration = () => {
             <div>
               <Label className="text-sm font-medium text-muted-foreground">訓練提示：</Label>
               <p className="text-sm bg-muted p-2 rounded mt-1">{trainingPrompt}</p>
+            </div>
+
+            <div>
+              <Label className="text-sm font-medium text-muted-foreground">分析類型：</Label>
+              <p className="text-sm flex items-center gap-2">
+                {analyticsType === "video" ? (
+                  <>
+                    <FileVideo className="w-4 h-4" />
+                    影片分析訓練
+                  </>
+                ) : (
+                  <>
+                    <Volume2 className="w-4 h-4" />
+                    音訊分析訓練
+                  </>
+                )}
+              </p>
             </div>
 
             <div>
