@@ -14,7 +14,6 @@ import {
   Sparkles 
 } from "lucide-react";
 import VisualAnalytics from "@/components/VisualAnalytics";
-import CampaignGenerator from "@/components/CampaignGenerator";
 import AITrainingConfiguration from "@/components/AITrainingConfiguration";
 import TelesalesAIInsights from "@/components/TelesalesAIInsights";
 
@@ -132,17 +131,6 @@ const Index = () => {
           </CardHeader>
         </Card>
 
-        <Card className="hover-lift cursor-pointer card-medical" onClick={() => setActiveTab("campaigns")}>
-          <CardHeader>
-            <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark mb-4">
-              <Zap className="w-6 h-6" />
-            </div>
-            <CardTitle className="text-white">智能營銷活動套裝</CardTitle>
-            <CardDescription className="text-white/80">
-              AI驅動營銷優化配合即時表現追蹤及適應調整
-            </CardDescription>
-          </CardHeader>
-        </Card>
       </div>
 
       {/* Demo Data Section */}
@@ -184,13 +172,6 @@ const Index = () => {
               <FileVideo className="w-4 h-4 mr-2" />
               示範影片分析
             </Button>
-            <Button 
-              onClick={() => setActiveTab("campaigns")}
-              className="btn-gold"
-            >
-              <Zap className="w-4 h-4 mr-2" />
-              啟動AI營銷活動
-            </Button>
           </div>
         </CardContent>
       </Card>
@@ -222,10 +203,9 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-card">
+          <TabsList className="grid w-full grid-cols-4 bg-card">
             <TabsTrigger value="overview">概覽</TabsTrigger>
             <TabsTrigger value="analytics">影片分析</TabsTrigger>
-            <TabsTrigger value="campaigns">營銷活動生成器</TabsTrigger>
             <TabsTrigger value="training">AI訓練配置</TabsTrigger>
             <TabsTrigger value="telesales">電話銷售AI</TabsTrigger>
           </TabsList>
@@ -236,10 +216,6 @@ const Index = () => {
 
           <TabsContent value="analytics">
             <VisualAnalytics />
-          </TabsContent>
-
-          <TabsContent value="campaigns">
-            <CampaignGenerator />
           </TabsContent>
 
           <TabsContent value="training">
