@@ -11,14 +11,12 @@ import { useToast } from "@/hooks/use-toast";
 import { 
   Brain, 
   Database, 
-  Upload, 
   FileVideo, 
   FileText, 
   Settings, 
   Zap,
   CheckCircle,
   AlertCircle,
-  Upload as UploadIcon,
   Volume2
 } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -27,7 +25,6 @@ const AITrainingConfiguration = () => {
   const [trainingPrompt, setTrainingPrompt] = useState("");
   const [analyticsType, setAnalyticsType] = useState<"video" | "audio">("video");
   const [selectedDataSource, setSelectedDataSource] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [isTraining, setIsTraining] = useState(false);
   const { toast } = useToast();
@@ -38,21 +35,6 @@ const AITrainingConfiguration = () => {
     { value: "customer", label: "客戶分析數據", icon: Database }
   ];
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files) {
-      const fileArray = Array.from(files);
-      setUploadedFiles(prev => [...prev, ...fileArray]);
-      toast({
-        title: "檔案上傳成功",
-        description: `已成功上傳 ${fileArray.length} 個檔案`,
-      });
-    }
-  };
-
-  const removeFile = (index: number) => {
-    setUploadedFiles(prev => prev.filter((_, i) => i !== index));
-  };
 
   const handleSubmit = () => {
     if (!trainingPrompt.trim()) {
@@ -90,12 +72,6 @@ const AITrainingConfiguration = () => {
     }, 2000);
   };
 
-  const getFileIcon = (fileName: string) => {
-    if (fileName.endsWith('.mp4') || fileName.endsWith('.avi') || fileName.endsWith('.mov')) {
-      return <FileVideo className="w-4 h-4" />;
-    }
-    return <FileText className="w-4 h-4" />;
-  };
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -198,65 +174,6 @@ const AITrainingConfiguration = () => {
               </Select>
             </div>
 
-            {/* File Upload Section */}
-            <div className="space-y-2">
-              <Label htmlFor="dataset-upload" className="text-sm font-medium">
-                訓練數據集上傳
-              </Label>
-              <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
-                <UploadIcon className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground mb-2">
-                  拖放檔案至此或點擊選擇檔案
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  支援格式：CSV, MP4, TXT, JSON (最大 100MB)
-                </p>
-                <Input
-                  id="dataset-upload"
-                  type="file"
-                  multiple
-                  accept=".csv,.mp4,.txt,.json"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
-                <Button 
-                  variant="outline" 
-                  onClick={() => document.getElementById('dataset-upload')?.click()}
-                  className="border-primary hover:bg-primary hover:text-primary-foreground"
-                >
-                  <Upload className="w-4 h-4 mr-2" />
-                  選擇檔案
-                </Button>
-              </div>
-
-              {/* Uploaded Files List */}
-              {uploadedFiles.length > 0 && (
-                <div className="space-y-2 mt-4">
-                  <Label className="text-sm font-medium">已上傳檔案：</Label>
-                  <div className="space-y-2 max-h-32 overflow-y-auto">
-                    {uploadedFiles.map((file, index) => (
-                      <div key={index} className="flex items-center justify-between p-2 bg-muted rounded-md">
-                        <div className="flex items-center gap-2">
-                          {getFileIcon(file.name)}
-                          <span className="text-sm truncate">{file.name}</span>
-                          <Badge variant="secondary" className="text-xs">
-                            {(file.size / 1024 / 1024).toFixed(1)} MB
-                          </Badge>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          size="sm" 
-                          onClick={() => removeFile(index)}
-                          className="h-6 w-6 p-0 hover:bg-destructive hover:text-destructive-foreground"
-                        >
-                          ×
-                        </Button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
 
             {/* Submit Button */}
             <Button 
@@ -395,20 +312,6 @@ const AITrainingConfiguration = () => {
               </p>
             </div>
 
-            {uploadedFiles.length > 0 && (
-              <div>
-                <Label className="text-sm font-medium text-muted-foreground">
-                  上傳檔案 ({uploadedFiles.length} 個)：
-                </Label>
-                <div className="text-sm space-y-1 max-h-20 overflow-y-auto">
-                  {uploadedFiles.map((file, index) => (
-                    <div key={index} className="text-muted-foreground">
-                      • {file.name}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           <DialogFooter>
