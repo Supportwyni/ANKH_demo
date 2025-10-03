@@ -16,7 +16,14 @@ import {
   Palette, 
   Users,
   CheckCircle,
-  Loader2
+  Loader2,
+  Target,
+  TrendingUp,
+  AlertTriangle,
+  Eye,
+  MousePointer,
+  Share2,
+  ShoppingCart
 } from "lucide-react";
 
 const VisualAnalytics = () => {
@@ -65,6 +72,107 @@ const VisualAnalytics = () => {
         { name: "Young entrepreneurs", score: 73 },
         { name: "Corporate decision makers", score: 82 },
         { name: "Early tech adopters", score: 79 }
+      ]
+    },
+    // New: Persona-Based Suitability Analysis
+    personaSuitability: {
+      personas: [
+        {
+          id: "tech-pro",
+          name: "Tech-savvy Professional",
+          demographics: "25-40 years, Urban, $60K-100K income",
+          matchScore: 87,
+          suitabilityLevel: "Excellent",
+          recommendations: [
+            "Perfect tone alignment - professional yet engaging",
+            "Video length (2:34) matches attention span preferences",
+            "Technical product focus resonates strongly",
+            "Office setting creates relatability"
+          ],
+          improvements: [
+            "Add more specific technical specifications",
+            "Include ROI metrics and productivity gains",
+            "Consider adding captions for mobile viewing"
+          ],
+          engagementPrediction: {
+            viewCompletion: 78,
+            clickThrough: 12,
+            shareRate: 8,
+            conversionRate: 4.2
+          }
+        },
+        {
+          id: "entrepreneur",
+          name: "Young Entrepreneur", 
+          demographics: "22-35 years, Mixed locations, Variable income",
+          matchScore: 73,
+          suitabilityLevel: "Good",
+          recommendations: [
+            "Entrepreneurial success stories create inspiration",
+            "Professional tone builds credibility",
+            "Product innovation angle appeals to growth mindset"
+          ],
+          improvements: [
+            "Highlight scalability and growth potential",
+            "Add more dynamic visual elements",
+            "Include startup success metrics",
+            "Shorten to 90 seconds for better retention"
+          ],
+          engagementPrediction: {
+            viewCompletion: 65,
+            clickThrough: 9,
+            shareRate: 12,
+            conversionRate: 3.1
+          }
+        },
+        {
+          id: "executive",
+          name: "Corporate Executive",
+          demographics: "35-55 years, Major cities, $100K+ income", 
+          matchScore: 82,
+          suitabilityLevel: "Very Good",
+          recommendations: [
+            "Executive-level messaging resonates well",
+            "Professional production quality meets expectations",
+            "Business case presentation style is appropriate"
+          ],
+          improvements: [
+            "Add enterprise-level feature highlights",
+            "Include compliance and security mentions",
+            "Feature C-suite testimonials",
+            "Add implementation timeline discussions"
+          ],
+          engagementPrediction: {
+            viewCompletion: 85,
+            clickThrough: 15,
+            shareRate: 6,
+            conversionRate: 5.8
+          }
+        },
+        {
+          id: "creative",
+          name: "Creative Professional",
+          demographics: "28-45 years, Creative hubs, $45K-80K income",
+          matchScore: 61,
+          suitabilityLevel: "Fair",
+          recommendations: [
+            "Professional quality appeals to aesthetic standards",
+            "Innovation angle connects with creative mindset"
+          ],
+          improvements: [
+            "Add more visual creativity and design elements",
+            "Highlight creative workflow benefits", 
+            "Include artistic/design industry use cases",
+            "Use more dynamic camera work and effects",
+            "Feature creative professional testimonials"
+          ],
+          engagementPrediction: {
+            viewCompletion: 58,
+            clickThrough: 7,
+            shareRate: 14,
+            conversionRate: 2.4
+          }
+        }
       ]
     }
   };
@@ -428,6 +536,128 @@ const VisualAnalytics = () => {
                       ))}
                     </div>
                   </div>
+                </AccordionContent>
+              </AccordionItem>
+              {/* Persona Suitability Analysis */}
+              <AccordionItem value="suitability" className="border rounded-lg px-4">
+                <AccordionTrigger className="text-left">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark">
+                      <Target className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Persona Suitability Analysis</div>
+                      <div className="text-sm text-muted-foreground">Video performance predictions by customer persona</div>
+                    </div>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="space-y-6 pt-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {analysisResults.personaSuitability.personas.map((persona, index) => {
+                      const getSuitabilityColor = (level) => {
+                        switch(level) {
+                          case 'Excellent': return 'text-success border-success bg-success/5';
+                          case 'Very Good': return 'text-primary border-primary bg-primary/5';
+                          case 'Good': return 'text-warning border-warning bg-warning/5';
+                          case 'Fair': return 'text-muted-foreground border-muted-foreground bg-muted/5';
+                          default: return 'text-muted-foreground border-muted-foreground bg-muted/5';
+                        }
+                      };
+
+                      return (
+                        <Card key={persona.id} className={`p-4 ${getSuitabilityColor(persona.suitabilityLevel)}`}>
+                          <div className="space-y-4">
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <h4 className="font-medium">{persona.name}</h4>
+                                <p className="text-xs text-muted-foreground">{persona.demographics}</p>
+                              </div>
+                              <div className="text-right">
+                                <Badge variant={persona.suitabilityLevel === 'Excellent' ? 'default' : 'secondary'}>
+                                  {persona.matchScore}% Match
+                                </Badge>
+                                <div className="text-xs mt-1">{persona.suitabilityLevel}</div>
+                              </div>
+                            </div>
+
+                            {/* Engagement Predictions */}
+                            <div className="grid grid-cols-2 gap-3 text-xs">
+                              <div className="flex items-center gap-1">
+                                <Eye className="w-3 h-3" />
+                                <span>{persona.engagementPrediction.viewCompletion}% completion</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <MousePointer className="w-3 h-3" />
+                                <span>{persona.engagementPrediction.clickThrough}% CTR</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <Share2 className="w-3 h-3" />
+                                <span>{persona.engagementPrediction.shareRate}% share</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <ShoppingCart className="w-3 h-3" />
+                                <span>{persona.engagementPrediction.conversionRate}% convert</span>
+                              </div>
+                            </div>
+
+                            {/* Recommendations Preview */}
+                            <div className="space-y-2">
+                              <div className="text-xs font-medium text-success">✓ What Works:</div>
+                              <ul className="text-xs space-y-1">
+                                {persona.recommendations.slice(0, 2).map((rec, i) => (
+                                  <li key={i} className="flex items-start gap-1">
+                                    <CheckCircle className="w-2 h-2 text-success flex-shrink-0 mt-1" />
+                                    <span>{rec}</span>
+                                  </li>
+                                ))}
+                              </ul>
+
+                              <div className="text-xs font-medium text-warning">⚡ Improvements:</div>
+                              <ul className="text-xs space-y-1">
+                                {persona.improvements.slice(0, 2).map((imp, i) => (
+                                  <li key={i} className="flex items-start gap-1">
+                                    <TrendingUp className="w-2 h-2 text-warning flex-shrink-0 mt-1" />
+                                    <span>{imp}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </Card>
+                      );
+                    })}
+                  </div>
+
+                  {/* Overall Suitability Summary */}
+                  <Card className="card-gold-accent p-4 bg-gradient-subtle">
+                    <h4 className="font-medium mb-3">📊 Overall Suitability Summary</h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                      <div>
+                        <div className="text-2xl font-bold text-primary">
+                          {Math.round(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.matchScore, 0) / analysisResults.personaSuitability.personas.length)}%
+                        </div>
+                        <div className="text-xs text-muted-foreground">Avg Match Score</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-success">
+                          {analysisResults.personaSuitability.personas.filter(p => p.suitabilityLevel === 'Excellent' || p.suitabilityLevel === 'Very Good').length}
+                        </div>
+                        <div className="text-xs text-muted-foreground">Strong Matches</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-warning">
+                          {Math.round(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.engagementPrediction.viewCompletion, 0) / analysisResults.personaSuitability.personas.length)}%
+                        </div>
+                        <div className="text-xs text-muted-foreground">Avg Completion</div>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-primary">
+                          {(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.engagementPrediction.conversionRate, 0) / analysisResults.personaSuitability.personas.length).toFixed(1)}%
+                        </div>
+                        <div className="text-xs text-muted-foreground">Avg Conversion</div>
+                      </div>
+                    </div>
+                  </Card>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

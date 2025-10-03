@@ -6,61 +6,64 @@
 
 @layer base {
   :root {
-    /* Core Brand Colors - Professional Green Palette */
+    /* ANKH Inspired Brand Colors - Medical Green & Gold */
     --background: 0 0% 100%;
-    --foreground: 155 25% 15%;
+    --foreground: 155 30% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 155 25% 15%;
+    --card-foreground: 155 30% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 155 25% 15%;
+    --popover-foreground: 155 30% 10%;
 
-    /* Primary Brand - Sophisticated Emerald Green */
-    --primary: 142 76% 36%;
+    /* Primary Brand - Deep Medical Green */
+    --primary: 158 64% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 142 60% 45%;
-    --primary-dark: 142 85% 25%;
+    --primary-light: 158 45% 35%;
+    --primary-dark: 158 75% 15%;
 
-    /* Secondary - Professional Complement */
-    --secondary: 155 15% 96%;
-    --secondary-foreground: 155 25% 15%;
+    /* Secondary - Warm Professional Gold */
+    --secondary: 45 85% 85%;
+    --secondary-foreground: 158 30% 10%;
 
-    /* Muted Tones */
-    --muted: 155 10% 95%;
-    --muted-foreground: 155 15% 45%;
+    /* Muted Tones - Soft Medical Palette */
+    --muted: 155 20% 94%;
+    --muted-foreground: 155 25% 40%;
 
-    /* Accent - Success Green */
-    --accent: 134 61% 51%;
+    /* Accent - Bright Medical Green */
+    --accent: 152 70% 45%;
     --accent-foreground: 0 0% 100%;
 
     /* Status Colors */
-    --success: 134 61% 51%;
+    --success: 152 70% 45%;
     --success-foreground: 0 0% 100%;
-    --warning: 45 93% 47%;
-    --warning-foreground: 0 0% 100%;
-    --destructive: 0 72% 51%;
+    --warning: 45 90% 60%;
+    --warning-foreground: 158 30% 10%;
+    --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 155 15% 88%;
-    --input: 155 15% 88%;
-    --ring: 142 76% 36%;
+    --border: 155 25% 85%;
+    --input: 155 25% 85%;
+    --ring: 158 64% 20%;
 
     /* Professional Radius */
     --radius: 0.75rem;
 
-    /* Brand Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 85% 25%));
-    --gradient-success: linear-gradient(135deg, hsl(134 61% 51%), hsl(142 76% 36%));
-    --gradient-hero: linear-gradient(135deg, hsl(142 60% 45%), hsl(134 61% 51%));
-    --gradient-subtle: linear-gradient(180deg, hsl(155 10% 95%), hsl(0 0% 100%));
+    /* ANKH Inspired Gradients - Deep Green & Gold */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 20%), hsl(158 75% 15%));
+    --gradient-success: linear-gradient(135deg, hsl(152 70% 45%), hsl(158 64% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(158 45% 35%), hsl(152 70% 45%));
+    --gradient-subtle: linear-gradient(180deg, hsl(155 20% 94%), hsl(0 0% 100%));
+    --gradient-medical: linear-gradient(135deg, hsl(158 64% 15%), hsl(158 75% 10%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 85% 65%), hsl(45 90% 55%));
 
-    /* Professional Shadows */
-    --shadow-elegant: 0 10px 25px -5px hsl(142 76% 36% / 0.1);
-    --shadow-success: 0 8px 25px -8px hsl(134 61% 51% / 0.3);
-    --shadow-card: 0 4px 12px -2px hsl(155 25% 15% / 0.08);
-    --shadow-glow: 0 0 40px hsl(142 76% 36% / 0.15);
+    /* ANKH Professional Shadows */
+    --shadow-elegant: 0 10px 30px -8px hsl(158 64% 20% / 0.15);
+    --shadow-success: 0 8px 25px -8px hsl(152 70% 45% / 0.25);
+    --shadow-card: 0 4px 12px -2px hsl(155 30% 10% / 0.08);
+    --shadow-glow: 0 0 40px hsl(158 64% 20% / 0.2);
+    --shadow-gold: 0 4px 20px -4px hsl(45 85% 65% / 0.3);
 
     /* Professional Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,33 +87,33 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 158 64% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 158 50% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 158 50% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 152 70% 55%;
+    --primary-foreground: 158 30% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 158 30% 15%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 158 30% 15%;
+    --muted-foreground: 155 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 152 70% 55%;
+    --accent-foreground: 158 30% 10%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 158 30% 18%;
+    --input: 158 30% 18%;
+    --ring: 152 70% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -174,6 +177,14 @@
     background: var(--gradient-subtle);
   }
   
+  .bg-gradient-medical {
+    background: var(--gradient-medical);
+  }
+  
+  .bg-gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
   /* Professional Animations */
   .animate-fade-in {
     animation: fadeIn 0.6s ease-out;
@@ -201,6 +212,28 @@
   .btn-primary:hover {
     transform: translateY(-1px);
     box-shadow: var(--shadow-success);
+  }
+  
+  .btn-gold {
+    @apply bg-gradient-gold text-primary-dark border-0 shadow-md;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-gold);
+  }
+  
+  /* ANKH Medical Cards */
+  .card-medical {
+    @apply bg-gradient-medical text-white border-0 shadow-lg;
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .card-gold-accent {
+    @apply border-l-4;
+    border-left-color: hsl(var(--warning));
+    box-shadow: var(--shadow-card), 4px 0 0 -2px hsl(var(--warning) / 0.1);
   }
 }
 
