@@ -35,43 +35,43 @@ const VisualAnalytics = () => {
 
   const mockAnalysisResults = {
     contentSummary: {
-      keyTopics: ["Pain Relief Technology", "Clinical Validation", "Patient Testimonials"],
+      keyTopics: ["痛症緩解技術", "臨床驗證", "病人見證"],
       mainMessages: [
-        "Introducing FDA-cleared pain relief technology",
-        "Real patient success stories and outcomes", 
-        "Non-invasive, drug-free pain management solution"
+        "介紹FDA認可的痛症緩解技術",
+        "真實病人成功案例及療效", 
+        "非侵入性、無藥物痛症管理方案"
       ],
       duration: "3:42",
       wordCount: 324
     },
     toneAnalysis: {
-      primary: "Professional Medical",
-      secondary: "Empathetic", 
+      primary: "專業醫療",
+      secondary: "關懷體貼", 
       confidence: 95,
       emotions: [
-        { name: "Trustworthy", score: 94 },
-        { name: "Compassionate", score: 88 },
-        { name: "Authoritative", score: 91 }
+        { name: "可信賴", score: 94 },
+        { name: "富有同理心", score: 88 },
+        { name: "權威性", score: 91 }
       ]
     },
     visualsBreakdown: {
       dominantColors: ["#1F4B3F", "#F4A261", "#FFFFFF"],
       scenes: [
-        "Clinical healthcare setting",
-        "Patient using device at home", 
-        "Healthcare professional consultation",
-        "Patient mobility improvement"
+        "臨床醫療環境",
+        "病人在家使用設備", 
+        "醫護專業人員諮詢",
+        "病人活動能力改善"
       ],
-      objects: ["Pain relief device", "Medical equipment", "Clinical setting", "Comfortable home environment"],
-      style: "Medical professional with warm, approachable aesthetics"
+      objects: ["痛症緩解設備", "醫療器材", "臨床環境", "舒適家居環境"],
+      style: "醫療專業配合溫暖親切的美學設計"
     },
     personaMatch: {
-      bestFit: "Active Senior Seekers (60-75)",
+      bestFit: "活躍長者尋求者 (60-75歲)",
       matchScore: 94,
       alternativePersonas: [
-        { name: "Post-surgery recovery patients", score: 91 },
-        { name: "Chronic pain patients", score: 86 },
-        { name: "Busy office professionals", score: 82 }
+        { name: "術後恢復病人", score: 91 },
+        { name: "慢性痛症病人", score: 86 },
+        { name: "忙碌辦公室專業人士", score: 82 }
       ]
     },
     // New: Persona-Based Suitability Analysis
@@ -79,20 +79,20 @@ const VisualAnalytics = () => {
       personas: [
         {
           id: "active-senior",
-          name: "Active Senior Seeker",
-          demographics: "60-75 years, $40K-80K income, Health-conscious",
+          name: "活躍長者尋求者",
+          demographics: "60-75歲，年收入$40K-80K，注重健康",
           matchScore: 94,
-          suitabilityLevel: "Excellent",
+          suitabilityLevel: "極佳",
           recommendations: [
-            "Perfect tone - trustworthy and empathetic messaging",
-            "Video length ideal for attention span preferences",
-            "Clear demonstration style builds confidence",
-            "Professional medical setting creates credibility"
+            "語調完美 - 值得信賴及富同理心的信息傳遞",
+            "影片長度理想，符合注意力跨度偏好",
+            "清晰示範風格建立信心",
+            "專業醫療環境營造可信度"
           ],
           improvements: [
-            "Add larger text overlays for better visibility",
-            "Include doctor testimonials and endorsements",
-            "Show seniors successfully using the device"
+            "增加較大字體顯示以提升可見度",
+            "包含醫生推薦及認可",
+            "展示長者成功使用設備"
           ],
           engagementPrediction: {
             viewCompletion: 88,
@@ -103,20 +103,20 @@ const VisualAnalytics = () => {
         },
         {
           id: "office-professional",
-          name: "Busy Office Professional", 
-          demographics: "30-45 years, Office workers, Time-constrained",
+          name: "忙碌辦公室專業人士", 
+          demographics: "30-45歲，辦公室工作者，時間緊迫",
           matchScore: 82,
-          suitabilityLevel: "Very Good",
+          suitabilityLevel: "非常好",
           recommendations: [
-            "Professional tone aligns with target audience",
-            "Compact device showcased fits office lifestyle",
-            "Quick relief messaging matches urgent needs"
+            "專業語調與目標受眾一致",
+            "展示的緊湊設備適合辦公室生活方式",
+            "快速緩解信息符合緊急需求"
           ],
           improvements: [
-            "Emphasize portability and discreteness",
-            "Add time-efficiency benefits prominently",
-            "Show usage during work breaks",
-            "Highlight wireless and wearable features"
+            "強調便攜性及隱私性",
+            "突出時間效率優勢",
+            "展示工作休息時間使用",
+            "突出無線及可穿戴功能"
           ],
           engagementPrediction: {
             viewCompletion: 75,
@@ -127,20 +127,20 @@ const VisualAnalytics = () => {
         },
         {
           id: "recovery-patient",
-          name: "Post-Surgery Recovery Patient",
-          demographics: "40-60 years, Surgery recovery, Medical validation needed", 
+          name: "術後恢復病人",
+          demographics: "40-60歲，手術康復中，需要醫療驗證", 
           matchScore: 91,
-          suitabilityLevel: "Excellent",
+          suitabilityLevel: "極佳",
           recommendations: [
-            "Medical-grade messaging builds trust",
-            "Clinical study references resonate strongly",
-            "Professional healthcare setting appropriate"
+            "醫療級信息建立信任",
+            "臨床研究引用產生強烈共鳴",
+            "專業醫療環境恰當合適"
           ],
           improvements: [
-            "Add more clinical evidence and data",
-            "Feature surgeon recommendations",
-            "Include FDA approval mentions",
-            "Show post-operative care integration"
+            "增加更多臨床證據及數據",
+            "加入外科醫生推薦",
+            "包含FDA批准提及",
+            "展示術後護理整合"
           ],
           engagementPrediction: {
             viewCompletion: 92,
@@ -151,20 +151,20 @@ const VisualAnalytics = () => {
         },
         {
           id: "athlete",
-          name: "Athletic Injury Recovery",
-          demographics: "20-35 years, Athletes, Performance-focused",
+          name: "運動創傷康復",
+          demographics: "20-35歲，運動員，專注表現",
           matchScore: 73,
-          suitabilityLevel: "Good",
+          suitabilityLevel: "良好",
           recommendations: [
-            "Innovation angle appeals to performance mindset",
-            "Technology focus matches audience interests"
+            "創新角度吸引表現導向思維",
+            "技術重點符合受眾興趣"
           ],
           improvements: [
-            "Add sports medicine professional endorsements",
-            "Highlight athletic performance recovery benefits", 
-            "Include competitive athlete testimonials",
-            "Show faster return-to-sport timelines",
-            "Feature sports medicine clinic settings"
+            "增加運動醫學專業人員認可",
+            "突出運動表現恢復效益", 
+            "包含競技運動員見證",
+            "展示更快恢復運動時間表",
+            "加入運動醫學診所環境"
           ],
           engagementPrediction: {
             viewCompletion: 68,
@@ -175,21 +175,21 @@ const VisualAnalytics = () => {
         },
         {
           id: "chronic-pain",
-          name: "Chronic Pain Patient",
-          demographics: "45-65 years, Long-term conditions, Skeptical",
+          name: "慢性痛症病人",
+          demographics: "45-65歲，長期病症，持懷疑態度",
           matchScore: 86,
-          suitabilityLevel: "Very Good",
+          suitabilityLevel: "非常好",
           recommendations: [
-            "Empathetic tone addresses chronic struggles",
-            "Evidence-based approach builds credibility",
-            "Long-term solution messaging resonates"
+            "同理心語調處理慢性困擾",
+            "基於證據的方法建立可信度",
+            "長期解決方案信息產生共鳴"
           ],
           improvements: [
-            "Add more patient success stories",
-            "Include long-term study results",
-            "Feature lifestyle improvement testimonials",
-            "Emphasize drug-free alternative benefits",
-            "Show daily life integration examples"
+            "增加更多病人成功故事",
+            "包含長期研究結果",
+            "加入生活方式改善見證",
+            "強調無藥物替代方案效益",
+            "展示日常生活整合例子"
           ],
           engagementPrediction: {
             viewCompletion: 85,
@@ -207,13 +207,13 @@ const VisualAnalytics = () => {
     if (file && file.type.startsWith('video/')) {
       setUploadedFile(file);
       toast({
-        title: "Video uploaded successfully",
-        description: `${file.name} ready for analysis`
+        title: "影片上傳成功",
+        description: `${file.name} 已準備好進行分析`
       });
     } else {
       toast({
-        title: "Invalid file type",
-        description: "Please upload a video file (MP4, MOV, etc.)",
+        title: "檔案格式錯誤",
+        description: "請上傳影片檔案 (MP4, MOV 等)",
         variant: "destructive"
       });
     }
@@ -222,8 +222,8 @@ const VisualAnalytics = () => {
   const simulateAnalysis = async () => {
     if (!uploadedFile && !videoUrl) {
       toast({
-        title: "No video selected",
-        description: "Please upload a video file or enter a URL",
+        title: "未選擇影片",
+        description: "請上傳影片檔案或輸入網址",
         variant: "destructive"
       });
       return;
@@ -239,16 +239,16 @@ const VisualAnalytics = () => {
     setIsAnalyzing(false);
     
     toast({
-      title: "Medical video analysis complete!",
-      description: "ANKH AI has successfully analyzed your pain relief content"
+      title: "醫療影片分析完成！",
+      description: "ANKH AI 已成功分析您的痛症緩解內容"
     });
   };
 
   const loadDemoVideo = () => {
     setVideoUrl("https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4");
     toast({
-      title: "Demo pain relief video loaded",
-      description: "Sample ANKH medical technology video ready for analysis"
+      title: "示範痛症緩解影片已載入",
+      description: "ANKH 醫療技術示範影片已準備好進行分析"
     });
   };
 
@@ -258,17 +258,17 @@ const VisualAnalytics = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Video className="w-5 h-5 text-primary" />
-            ANKH Video Intelligence System
+            ANKH 影片智能系統
           </CardTitle>
           <CardDescription>
-            Upload pain relief marketing videos for advanced AI analysis and patient persona matching
+            上傳痛症緩解營銷影片進行先進AI分析及病人特徵匹配
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Upload Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <Label className="text-base font-medium">Upload Video File</Label>
+              <Label className="text-base font-medium">上傳影片檔案</Label>
               <div className="border-2 border-dashed border-primary/30 rounded-lg p-6 text-center hover:border-primary/60 transition-colors">
                 <input
                   type="file"
@@ -279,8 +279,8 @@ const VisualAnalytics = () => {
                 />
                 <label htmlFor="video-upload" className="cursor-pointer">
                   <Upload className="w-12 h-12 text-primary mx-auto mb-4" />
-                  <p className="text-sm font-medium mb-2">Click to upload or drag and drop</p>
-                  <p className="text-xs text-muted-foreground">MP4, MOV, AVI up to 50MB</p>
+                  <p className="text-sm font-medium mb-2">點擊上傳或拖拉檔案</p>
+                  <p className="text-xs text-muted-foreground">MP4, MOV, AVI 最大50MB</p>
                 </label>
                 {uploadedFile && (
                   <div className="mt-4 flex items-center justify-center gap-2 text-success">
@@ -292,7 +292,7 @@ const VisualAnalytics = () => {
             </div>
 
             <div className="space-y-4">
-              <Label htmlFor="video-url" className="text-base font-medium">Or Enter Video URL</Label>
+              <Label htmlFor="video-url" className="text-base font-medium">或輸入影片網址</Label>
               <Input
                 id="video-url"
                 placeholder="https://example.com/video.mp4"
@@ -305,7 +305,7 @@ const VisualAnalytics = () => {
                 className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <PlayCircle className="w-4 h-4 mr-2" />
-                Load Demo Video
+                載入示範影片
               </Button>
             </div>
           </div>
@@ -320,12 +320,12 @@ const VisualAnalytics = () => {
               {isAnalyzing ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Analyzing Video...
+                  正在分析影片...
                 </>
               ) : (
                 <>
                   <Brain className="w-5 h-5 mr-2" />
-                  Analyze Video
+                  分析影片
                 </>
               )}
             </Button>
@@ -337,15 +337,15 @@ const VisualAnalytics = () => {
               <CardContent className="pt-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium">AI Processing</span>
-                    <span className="text-sm text-muted-foreground">Analyzing content...</span>
+                    <span className="text-sm font-medium">AI 處理中</span>
+                    <span className="text-sm text-muted-foreground">分析內容中...</span>
                   </div>
                   <Progress value={85} className="h-2" />
                   <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>Content extraction</span>
-                    <span>Tone analysis</span>
-                    <span>Visual processing</span>
-                    <span>Persona matching</span>
+                    <span>內容提取</span>
+                    <span>語調分析</span>
+                    <span>視覺處理</span>
+                    <span>特徵匹配</span>
                   </div>
                 </div>
               </CardContent>
@@ -360,10 +360,10 @@ const VisualAnalytics = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <FileText className="w-5 h-5 text-success" />
-              Analysis Results
+              分析結果
             </CardTitle>
             <CardDescription>
-              Comprehensive AI analysis of your marketing video content
+              痛症緩解影片內容的全面AI分析報告
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -376,15 +376,15 @@ const VisualAnalytics = () => {
                       <FileText className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-medium">Content Summary</div>
-                      <div className="text-sm text-muted-foreground">Key topics and messages</div>
+                      <div className="font-medium">內容摘要</div>
+                      <div className="text-sm text-muted-foreground">關鍵主題及信息內容</div>
                     </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="space-y-4 pt-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <h4 className="font-medium mb-2">Key Topics</h4>
+                      <h4 className="font-medium mb-2">關鍵主題</h4>
                       <div className="flex flex-wrap gap-2">
                         {analysisResults.contentSummary.keyTopics.map((topic, index) => (
                           <Badge key={index} variant="secondary">{topic}</Badge>
@@ -392,15 +392,15 @@ const VisualAnalytics = () => {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-medium mb-2">Video Details</h4>
+                      <h4 className="font-medium mb-2">影片詳情</h4>
                       <div className="space-y-1 text-sm">
-                        <div>Duration: {analysisResults.contentSummary.duration}</div>
-                        <div>Word Count: {analysisResults.contentSummary.wordCount}</div>
+                        <div>播放時長: {analysisResults.contentSummary.duration}</div>
+                        <div>字數統計: {analysisResults.contentSummary.wordCount}</div>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium mb-2">Main Messages</h4>
+                    <h4 className="font-medium mb-2">主要信息</h4>
                     <ul className="space-y-1">
                       {analysisResults.contentSummary.mainMessages.map((message, index) => (
                         <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -421,9 +421,9 @@ const VisualAnalytics = () => {
                       <Brain className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-medium">Tone Analysis</div>
+                      <div className="font-medium">語調分析</div>
                       <div className="text-sm text-muted-foreground">
-                        {analysisResults.toneAnalysis.primary} • {analysisResults.toneAnalysis.confidence}% confidence
+                        {analysisResults.toneAnalysis.primary} • {analysisResults.toneAnalysis.confidence}% 可信度
                       </div>
                     </div>
                   </div>
@@ -431,7 +431,7 @@ const VisualAnalytics = () => {
                 <AccordionContent className="space-y-4 pt-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-medium mb-3">Primary Tone</h4>
+                      <h4 className="font-medium mb-3">主要語調</h4>
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="text-sm font-medium">{analysisResults.toneAnalysis.primary}</span>
@@ -443,7 +443,7 @@ const VisualAnalytics = () => {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-medium mb-3">Emotional Indicators</h4>
+                      <h4 className="font-medium mb-3">情緒指標</h4>
                       <div className="space-y-2">
                         {analysisResults.toneAnalysis.emotions.map((emotion, index) => (
                           <div key={index} className="flex justify-between items-center">
@@ -468,8 +468,8 @@ const VisualAnalytics = () => {
                       <Palette className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-medium">Visuals Breakdown</div>
-                      <div className="text-sm text-muted-foreground">Colors, scenes, and style analysis</div>
+                      <div className="font-medium">視覺分析</div>
+                      <div className="text-sm text-muted-foreground">色彩、場景及風格分析</div>
                     </div>
                   </div>
                 </AccordionTrigger>
@@ -477,7 +477,7 @@ const VisualAnalytics = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium mb-2">Dominant Colors</h4>
+                        <h4 className="font-medium mb-2">主導色彩</h4>
                         <div className="flex gap-2">
                           {analysisResults.visualsBreakdown.dominantColors.map((color, index) => (
                             <div
@@ -490,7 +490,7 @@ const VisualAnalytics = () => {
                         </div>
                       </div>
                       <div>
-                        <h4 className="font-medium mb-2">Key Objects</h4>
+                        <h4 className="font-medium mb-2">關鍵物件</h4>
                         <div className="flex flex-wrap gap-2">
                           {analysisResults.visualsBreakdown.objects.map((object, index) => (
                             <Badge key={index} variant="outline">{object}</Badge>
@@ -500,7 +500,7 @@ const VisualAnalytics = () => {
                     </div>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-medium mb-2">Scene Analysis</h4>
+                        <h4 className="font-medium mb-2">場景分析</h4>
                         <ul className="space-y-1">
                           {analysisResults.visualsBreakdown.scenes.map((scene, index) => (
                             <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -511,7 +511,7 @@ const VisualAnalytics = () => {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-medium mb-2">Visual Style</h4>
+                        <h4 className="font-medium mb-2">視覺風格</h4>
                         <p className="text-sm text-muted-foreground">{analysisResults.visualsBreakdown.style}</p>
                       </div>
                     </div>
@@ -527,28 +527,28 @@ const VisualAnalytics = () => {
                       <Users className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-medium">Persona Match</div>
+                      <div className="font-medium">客戶特徵匹配</div>
                       <div className="text-sm text-muted-foreground">
-                        Best fit: {analysisResults.personaMatch.bestFit} • {analysisResults.personaMatch.matchScore}% match
+                        最佳匹配: {analysisResults.personaMatch.bestFit} • {analysisResults.personaMatch.matchScore}% 匹配度
                       </div>
                     </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="space-y-4 pt-4">
                   <div>
-                    <h4 className="font-medium mb-3">Best Persona Match</h4>
+                    <h4 className="font-medium mb-3">最佳客戶特徵匹配</h4>
                     <div className="bg-gradient-subtle p-4 rounded-lg border-l-4 border-primary">
                       <div className="flex justify-between items-center mb-2">
                         <span className="font-medium">{analysisResults.personaMatch.bestFit}</span>
                         <Badge className="bg-success text-success-foreground">
-                          {analysisResults.personaMatch.matchScore}% Match
+                          {analysisResults.personaMatch.matchScore}% 匹配度
                         </Badge>
                       </div>
                       <Progress value={analysisResults.personaMatch.matchScore} className="h-2" />
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium mb-3">Alternative Personas</h4>
+                    <h4 className="font-medium mb-3">其他匹配特徵</h4>
                     <div className="space-y-2">
                       {analysisResults.personaMatch.alternativePersonas.map((persona, index) => (
                         <div key={index} className="flex justify-between items-center p-3 border rounded-lg">
@@ -571,8 +571,8 @@ const VisualAnalytics = () => {
                       <Target className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="font-medium">Persona Suitability Analysis</div>
-                      <div className="text-sm text-muted-foreground">Video performance predictions by customer persona</div>
+                      <div className="font-medium">客戶特徵適合度分析</div>
+                      <div className="text-sm text-muted-foreground">按客戶特徵分類的影片表現預測</div>
                     </div>
                   </div>
                 </AccordionTrigger>
@@ -581,10 +581,10 @@ const VisualAnalytics = () => {
                     {analysisResults.personaSuitability.personas.map((persona, index) => {
                       const getSuitabilityColor = (level) => {
                         switch(level) {
-                          case 'Excellent': return 'text-success border-success bg-success/5';
-                          case 'Very Good': return 'text-primary border-primary bg-primary/5';
-                          case 'Good': return 'text-warning border-warning bg-warning/5';
-                          case 'Fair': return 'text-muted-foreground border-muted-foreground bg-muted/5';
+                          case '極佳': return 'text-success border-success bg-success/5';
+                          case '非常好': return 'text-primary border-primary bg-primary/5';
+                          case '良好': return 'text-warning border-warning bg-warning/5';
+                          case '一般': return 'text-muted-foreground border-muted-foreground bg-muted/5';
                           default: return 'text-muted-foreground border-muted-foreground bg-muted/5';
                         }
                       };
@@ -598,8 +598,8 @@ const VisualAnalytics = () => {
                                 <p className="text-xs text-muted-foreground">{persona.demographics}</p>
                               </div>
                               <div className="text-right">
-                                <Badge variant={persona.suitabilityLevel === 'Excellent' ? 'default' : 'secondary'}>
-                                  {persona.matchScore}% Match
+                                <Badge variant={persona.suitabilityLevel === '極佳' ? 'default' : 'secondary'}>
+                                  {persona.matchScore}% 匹配度
                                 </Badge>
                                 <div className="text-xs mt-1">{persona.suitabilityLevel}</div>
                               </div>
@@ -609,25 +609,25 @@ const VisualAnalytics = () => {
                             <div className="grid grid-cols-2 gap-3 text-xs">
                               <div className="flex items-center gap-1">
                                 <Eye className="w-3 h-3" />
-                                <span>{persona.engagementPrediction.viewCompletion}% completion</span>
+                                <span>{persona.engagementPrediction.viewCompletion}% 完成率</span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <MousePointer className="w-3 h-3" />
-                                <span>{persona.engagementPrediction.clickThrough}% CTR</span>
+                                <span>{persona.engagementPrediction.clickThrough}% 點擊率</span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <Share2 className="w-3 h-3" />
-                                <span>{persona.engagementPrediction.shareRate}% share</span>
+                                <span>{persona.engagementPrediction.shareRate}% 分享率</span>
                               </div>
                               <div className="flex items-center gap-1">
                                 <ShoppingCart className="w-3 h-3" />
-                                <span>{persona.engagementPrediction.conversionRate}% convert</span>
+                                <span>{persona.engagementPrediction.conversionRate}% 轉換率</span>
                               </div>
                             </div>
 
                             {/* Recommendations Preview */}
                             <div className="space-y-2">
-                              <div className="text-xs font-medium text-success">✓ What Works:</div>
+                              <div className="text-xs font-medium text-success">✓ 有效因素：</div>
                               <ul className="text-xs space-y-1">
                                 {persona.recommendations.slice(0, 2).map((rec, i) => (
                                   <li key={i} className="flex items-start gap-1">
@@ -637,7 +637,7 @@ const VisualAnalytics = () => {
                                 ))}
                               </ul>
 
-                              <div className="text-xs font-medium text-warning">⚡ Improvements:</div>
+                              <div className="text-xs font-medium text-warning">⚡ 改善建議：</div>
                               <ul className="text-xs space-y-1">
                                 {persona.improvements.slice(0, 2).map((imp, i) => (
                                   <li key={i} className="flex items-start gap-1">
@@ -655,31 +655,31 @@ const VisualAnalytics = () => {
 
                   {/* Overall Suitability Summary */}
                   <Card className="card-gold-accent p-4 bg-gradient-subtle">
-                    <h4 className="font-medium mb-3">📊 Overall Suitability Summary</h4>
+                    <h4 className="font-medium mb-3">📊 整體適合度摘要</h4>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
                       <div>
                         <div className="text-2xl font-bold text-primary">
                           {Math.round(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.matchScore, 0) / analysisResults.personaSuitability.personas.length)}%
                         </div>
-                        <div className="text-xs text-muted-foreground">Avg Match Score</div>
+                        <div className="text-xs text-muted-foreground">平均匹配分數</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-success">
-                          {analysisResults.personaSuitability.personas.filter(p => p.suitabilityLevel === 'Excellent' || p.suitabilityLevel === 'Very Good').length}
+                          {analysisResults.personaSuitability.personas.filter(p => p.suitabilityLevel === '極佳' || p.suitabilityLevel === '非常好').length}
                         </div>
-                        <div className="text-xs text-muted-foreground">Strong Matches</div>
+                        <div className="text-xs text-muted-foreground">強匹配項目</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-warning">
                           {Math.round(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.engagementPrediction.viewCompletion, 0) / analysisResults.personaSuitability.personas.length)}%
                         </div>
-                        <div className="text-xs text-muted-foreground">Avg Completion</div>
+                        <div className="text-xs text-muted-foreground">平均完成率</div>
                       </div>
                       <div>
                         <div className="text-2xl font-bold text-primary">
                           {(analysisResults.personaSuitability.personas.reduce((acc, p) => acc + p.engagementPrediction.conversionRate, 0) / analysisResults.personaSuitability.personas.length).toFixed(1)}%
                         </div>
-                        <div className="text-xs text-muted-foreground">Avg Conversion</div>
+                        <div className="text-xs text-muted-foreground">平均轉換率</div>
                       </div>
                     </div>
                   </Card>

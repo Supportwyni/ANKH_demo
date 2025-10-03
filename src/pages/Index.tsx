@@ -32,24 +32,24 @@ const Index = () => {
         </div>
         <div className="max-w-3xl mx-auto relative z-10">
           <h1 className="text-4xl font-bold mb-4">
-            ANKH AI Solutions
+            ANKH AI 解決方案
           </h1>
           <p className="text-xl opacity-90 mb-6">
-            Advanced AI-Powered Personalized Marketing Platform
+            先進AI驅動的個人化營銷平台
           </p>
           <div className="flex flex-wrap justify-center gap-3 mb-6">
             <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
               <Sparkles className="w-4 h-4 mr-2" />
-              Medical-Grade AI Intelligence
+              醫療級AI智能技術
             </Badge>
             <Badge variant="secondary" className="bg-gradient-gold text-primary-dark border-0">
               <Target className="w-4 h-4 mr-2" />
-              Precision Marketing
+              精準營銷方案
             </Badge>
           </div>
           <p className="text-base opacity-80 max-w-2xl mx-auto">
-            Leverage cutting-edge artificial intelligence to analyze video content, understand customer personas, 
-            and generate highly targeted marketing campaigns with medical-grade precision.
+            運用尖端人工智能技術分析影片內容，深入了解客戶特徵，
+            並以醫療級精準度製作高度針對性的營銷活動。
           </p>
         </div>
       </div>
@@ -59,10 +59,10 @@ const Index = () => {
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <Brain className="w-5 h-5 text-primary" />
-            ANKH Platform Architecture
+            ANKH 平台架構
           </CardTitle>
           <CardDescription>
-            Medical-grade precision meets AI innovation in marketing automation
+            醫療級精準度結合AI創新營銷自動化技術
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -72,9 +72,9 @@ const Index = () => {
               <div className="bg-gradient-medical p-6 rounded-xl text-white shadow-glow group-hover:scale-105 transition-transform">
                 <FileVideo className="w-10 h-10" />
               </div>
-              <h3 className="font-semibold text-primary">Video Intelligence</h3>
+              <h3 className="font-semibold text-primary">影片智能分析</h3>
               <p className="text-sm text-muted-foreground text-center max-w-32">
-                AI-powered content analysis & tone detection
+                AI驅動內容分析及語調檢測
               </p>
             </div>
 
@@ -90,9 +90,9 @@ const Index = () => {
               <div className="bg-gradient-success p-6 rounded-xl text-white shadow-success group-hover:scale-105 transition-transform">
                 <Database className="w-10 h-10" />
               </div>
-              <h3 className="font-semibold text-primary">Persona Profiling</h3>
+              <h3 className="font-semibold text-primary">客戶特徵分析</h3>
               <p className="text-sm text-muted-foreground text-center max-w-32">
-                Deep customer analysis & behavioral mapping
+                深度客戶分析及行為模式映射
               </p>
             </div>
 
@@ -108,9 +108,9 @@ const Index = () => {
               <div className="bg-gradient-primary p-6 rounded-xl text-white animate-pulse-soft shadow-glow group-hover:scale-105 transition-transform">
                 <Brain className="w-10 h-10" />
               </div>
-              <h3 className="font-semibold text-primary">AI Core Engine</h3>
+              <h3 className="font-semibold text-primary">AI核心引擎</h3>
               <p className="text-sm text-muted-foreground text-center max-w-32">
-                Neural matching & personalization algorithms
+                神經網絡匹配及個人化演算法
               </p>
             </div>
 
@@ -126,9 +126,9 @@ const Index = () => {
               <div className="bg-gradient-hero p-6 rounded-xl text-white shadow-elegant group-hover:scale-105 transition-transform">
                 <Target className="w-10 h-10" />
               </div>
-              <h3 className="font-semibold text-primary">Smart Deployment</h3>
+              <h3 className="font-semibold text-primary">智能部署系統</h3>
               <p className="text-sm text-muted-foreground text-center max-w-32">
-                Precision-targeted campaign execution
+                精準目標營銷活動執行
               </p>
             </div>
           </div>
@@ -142,9 +142,9 @@ const Index = () => {
             <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark mb-4">
               <Play className="w-6 h-6" />
             </div>
-            <CardTitle className="text-white">Advanced Video Analytics</CardTitle>
+            <CardTitle className="text-white">先進影片分析系統</CardTitle>
             <CardDescription className="text-white/80">
-              Medical-grade AI analysis with precision persona matching and engagement prediction
+              醫療級AI分析配合精準客戶特徵匹配及參與度預測
             </CardDescription>
           </CardHeader>
         </Card>
@@ -154,9 +154,9 @@ const Index = () => {
             <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark mb-4">
               <Users className="w-6 h-6" />
             </div>
-            <CardTitle className="text-white">Deep Customer Profiling</CardTitle>
+            <CardTitle className="text-white">深度客戶特徵分析</CardTitle>
             <CardDescription className="text-white/80">
-              Comprehensive behavioral analysis with predictive modeling and recommendation engine
+              全面行為分析配合預測建模及推薦引擎系統
             </CardDescription>
           </CardHeader>
         </Card>
@@ -166,9 +166,9 @@ const Index = () => {
             <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center text-primary-dark mb-4">
               <Zap className="w-6 h-6" />
             </div>
-            <CardTitle className="text-white">Intelligent Campaign Suite</CardTitle>
+            <CardTitle className="text-white">智能營銷活動套裝</CardTitle>
             <CardDescription className="text-white/80">
-              AI-driven campaign optimization with real-time performance tracking and adaptation
+              AI驅動營銷優化配合即時表現追蹤及適應調整
             </CardDescription>
           </CardHeader>
         </Card>
@@ -179,28 +179,28 @@ const Index = () => {
         <CardHeader>
           <CardTitle className="text-center flex items-center justify-center gap-2">
             <Sparkles className="w-5 h-5 text-warning" />
-            Experience ANKH AI Platform
+            體驗 ANKH AI 平台
           </CardTitle>
           <CardDescription className="text-center">
-            Explore our advanced AI capabilities with comprehensive demo data and real-time analysis
+            透過全面示範數據及即時分析探索我們的先進AI功能
           </CardDescription>
         </CardHeader>
         <CardContent className="text-center space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-4 rounded-lg bg-white/50 border border-warning/20">
               <Brain className="w-8 h-8 text-primary mx-auto mb-2" />
-              <h4 className="font-medium text-sm">AI Video Analysis</h4>
-              <p className="text-xs text-muted-foreground">Advanced content intelligence</p>
+              <h4 className="font-medium text-sm">AI影片分析</h4>
+              <p className="text-xs text-muted-foreground">先進內容智能分析</p>
             </div>
             <div className="p-4 rounded-lg bg-white/50 border border-warning/20">
               <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-              <h4 className="font-medium text-sm">Persona Mapping</h4>
-              <p className="text-xs text-muted-foreground">Behavioral pattern recognition</p>
+              <h4 className="font-medium text-sm">客戶特徵映射</h4>
+              <p className="text-xs text-muted-foreground">行為模式識別分析</p>
             </div>
             <div className="p-4 rounded-lg bg-white/50 border border-warning/20">
               <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-              <h4 className="font-medium text-sm">Precision Targeting</h4>
-              <p className="text-xs text-muted-foreground">Optimized campaign delivery</p>
+              <h4 className="font-medium text-sm">精準目標定位</h4>
+              <p className="text-xs text-muted-foreground">優化營銷活動投遞</p>
             </div>
           </div>
           
@@ -211,7 +211,7 @@ const Index = () => {
               className="border-primary hover:bg-primary hover:text-primary-foreground"
             >
               <FileVideo className="w-4 h-4 mr-2" />
-              Demo Video Analytics
+              示範影片分析
             </Button>
             <Button 
               variant="outline" 
@@ -219,14 +219,14 @@ const Index = () => {
               className="border-primary hover:bg-primary hover:text-primary-foreground"
             >
               <Users className="w-4 h-4 mr-2" />
-              Demo Profiling Suite
+              示範特徵分析套裝
             </Button>
             <Button 
               onClick={() => setActiveTab("campaigns")}
               className="btn-gold"
             >
               <Zap className="w-4 h-4 mr-2" />
-              Launch AI Campaign
+              啟動AI營銷活動
             </Button>
           </div>
         </CardContent>
@@ -244,14 +244,14 @@ const Index = () => {
               <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center text-white font-bold">
                 A
               </div>
-              <div>
-                <h1 className="text-xl font-bold text-gradient">ANKH AI Solutions</h1>
-                <p className="text-sm text-muted-foreground">Personalized Marketing Platform</p>
-              </div>
+            <div>
+              <h1 className="text-xl font-bold text-gradient">ANKH AI 解決方案</h1>
+              <p className="text-sm text-muted-foreground">個人化營銷平台</p>
             </div>
-            <Badge variant="outline" className="border-primary text-primary">
-              Demo Platform
-            </Badge>
+          </div>
+          <Badge variant="outline" className="border-primary text-primary">
+            示範平台
+          </Badge>
           </div>
         </div>
       </header>
@@ -260,10 +260,10 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-4 bg-card">
-            <TabsTrigger value="overview">Overview</TabsTrigger>
-            <TabsTrigger value="analytics">Visual Analytics</TabsTrigger>
-            <TabsTrigger value="profiling">Customer Profiling</TabsTrigger>
-            <TabsTrigger value="campaigns">Campaign Generator</TabsTrigger>
+            <TabsTrigger value="overview">概覽</TabsTrigger>
+            <TabsTrigger value="analytics">影片分析</TabsTrigger>
+            <TabsTrigger value="profiling">客戶特徵分析</TabsTrigger>
+            <TabsTrigger value="campaigns">營銷活動生成器</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
